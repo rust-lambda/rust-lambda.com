@@ -4,6 +4,8 @@ import { Code } from "astro:components";
 import Layout from "../layouts/Layout.astro";
 import cover from "../images/book-cover.jpg";
 import Readers from "../components/Readers.astro";
+import Avatar from "../components/ui/Avatar.astro";
+import guy from "../images/devs/guy.png";
 
 const rustCodeExample = `async fn function_handler(
     event: LambdaEvent<EventBridgeEvent<Value>>,
@@ -161,21 +163,36 @@ const rustCodeExample = `async fn function_handler(
         </div>
       </section>
 
-      <section class="my-12 px-4 md:px-6 text-foreground">
-        <h2>Social Proof</h2>
-        <blockquote>
-          <p>
-            As someone with a strong JavaScript background, I did not expect
+      <section class="my-20 px-4 md:px-6 text-foreground">
+        <div
+          class="flex flex-col space-y-2 lg:col-start-3 lg:col-span-8 lg:space-y-4 max-w-[680px] m-auto"
+        >
+          <blockquote
+            class="text-lg leading-loose font-serif italic text-foreground border-l-2 border-border pl-3 sm:text-xl md:pl-4 md:text-2xl"
+          >
+            "As someone with a strong JavaScript background, I did not expect
             this book to make me so productive at writing my first Lambda
             functions using Rust. It definitely accelerated my path to
-            production and the gains are insane!
-          </p>
-          <p>- Super Mario</p>
-        </blockquote>
+            production and the gains are insane!"
+          </blockquote>
+          <div
+            class="flex items-center justify-center space-x-2 lg:justify-start"
+          >
+            <Avatar
+              class="w-12 h-12"
+              image={guy}
+              fallback="GA"
+              alt="Guy Ackchyually, Junior Cloud Developer"
+            />
+            <div class="text-sm font-medium text-gray-500 dark:text-gray-400">
+              — Guy Ackchyually, Junior Cloud Developer
+            </div>
+          </div>
+        </div>
       </section>
 
       <section
-        class="my-12 px-4 md:px-6 text-foreground flex flex-col justify-center align-middle gap-4 items-center"
+        class="mt-40 my-12 px-4 md:px-6 text-foreground flex flex-col justify-center align-middle gap-4 items-center"
       >
         <h2
           class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
@@ -183,7 +200,7 @@ const rustCodeExample = `async fn function_handler(
           What's inside?
         </h2>
         <p class="max-w-[600px] text-lg text-foreground">
-          <strong class="bg-yellow-500">TODO:</strong> Looking to build <strong
+          <strong class="bg-accent">TODO:</strong> Looking to build <strong
             >efficient</strong
           > and <strong>sustainable</strong> AWS solutions that won't break the bank?
           Wondering how the Rust programming language could help you achieve that?
