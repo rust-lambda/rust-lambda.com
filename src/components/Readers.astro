@@ -40,10 +40,12 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     readers.map((r) => (
       <Avatar
         image={images[`/src/images/devs/${r.image}`]()}
-        alt={`${r.name}'s picture`}
+        alt={`${r.name}'s portrait`}
         fallback={r.name.substring(0, 2).toLocaleUpperCase()}
         class="w-8 h-8"
         width={32}
+        loading="eager"
+        decoding="sync"
       />
     ))
   }

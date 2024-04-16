@@ -13,6 +13,8 @@ type Props = {
       }>;
   class: string;
   width?: number;
+  decoding?: "async" | "auto" | "sync" | undefined | null;
+  loading?: "eager" | "lazy" | undefined | null;
 };
 
 const props: Props = Astro.props;
@@ -24,6 +26,8 @@ const props: Props = Astro.props;
       <Image
         src={props.image}
         alt={props.alt}
+        decoding={props.decoding}
+        loading={props.loading}
         class={cn(
           "w-full h-full object-cover border-border border-solid border-2 rounded-full",
           props.class
