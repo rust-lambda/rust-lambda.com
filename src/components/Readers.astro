@@ -1,0 +1,65 @@
+---
+import type { ImageMetadata } from "astro";
+import Avatar from "./ui/Avatar.astro";
+
+type Props = {
+  total: number;
+};
+
+// TODO: make list of real readers
+const readers = [
+  { name: "Alice", image: "uifaces-human-image-2.jpg" },
+  { name: "Bob", image: "uifaces-human-image-3.jpg" },
+  { name: "Charlie", image: "uifaces-human-image-4.jpg" },
+  { name: "David", image: "uifaces-human-image-5.jpg" },
+  { name: "Eve", image: "uifaces-human-image-6.jpg" },
+  { name: "Frank", image: "uifaces-human-image-7.jpg" },
+  { name: "Grace", image: "uifaces-human-image-8.jpg" },
+  { name: "Heidi", image: "uifaces-human-image-9.jpg" },
+  { name: "Ivan", image: "uifaces-human-image-10.jpg" },
+  { name: "Judy", image: "uifaces-human-image-11.jpg" },
+  { name: "Kevin", image: "uifaces-human-image-12.jpg" },
+  { name: "Linda", image: "uifaces-human-image-13.jpg" },
+  { name: "Mallory", image: "uifaces-human-image-14.jpg" },
+  { name: "Nia", image: "uifaces-human-image-15.jpg" },
+  { name: "Oscar", image: "uifaces-human-image-16.jpg" },
+  { name: "Peggy", image: "uifaces-human-image-17.jpg" },
+  { name: "Quinn", image: "uifaces-human-image-18.jpg" },
+  { name: "Rene", image: "uifaces-human-image-19.jpg" },
+  { name: "Steve", image: "uifaces-human-image-20.jpg" },
+];
+
+const { total } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/images/devs/*.jpg"
+);
+---
+
+<div class="flex flex-row -space-x-2">
+  {
+    readers.map((r) => (
+      <Avatar
+        image={images[`/src/images/devs/${r.image}`]()}
+        alt={`${r.name}'s picture`}
+        fallback={r.name.substring(0, 2).toLocaleUpperCase()}
+        class="w-8 h-8"
+        width={32}
+      />
+    ))
+  }
+  <Avatar
+    alt="More readers"
+    fallback={`+${total - readers.length}`}
+    class="w-8 h-8"
+    width={32}
+  />
+</div>
+<p class="mt-2 text-sm text-foreground/80">
+  Join {
+    readers.slice(0, 5).map((r) => (
+      <>
+        <span class="font-semibold">{r.name}</span>,
+      </>
+    ))
+  } and other devs who are enjoying this book!
+</p>

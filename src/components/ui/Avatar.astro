@@ -1,0 +1,47 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import { cn } from "../../lib/utils";
+
+type Props = {
+  fallback: string;
+  alt: string;
+  image?:
+    | ImageMetadata
+    | Promise<{
+        default: ImageMetadata;
+      }>;
+  class: string;
+  width?: number;
+};
+
+const props: Props = Astro.props;
+---
+
+<div class={props.class}>
+  {
+    props.image && (
+      <Image
+        src={props.image}
+        alt={props.alt}
+        class={cn(
+          "w-full h-full object-cover border-border border-solid border-2 rounded-full",
+          props.class
+        )}
+        widths={[props.width || 100]}
+      />
+    )
+  }
+  {
+    !props.image && (
+      <div
+        class={cn(
+          "w-full h-full object-cover border-border border-solid border-2 rounded-full text-center bg-card text-card-foreground flex items-center justify-center text-xs font-semibold",
+          props.class
+        )}
+      >
+        {props.fallback}
+      </div>
+    )
+  }
+</div>

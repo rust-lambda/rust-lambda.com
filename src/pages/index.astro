@@ -2,6 +2,7 @@
 import Image from "astro/components/Image.astro";
 import Layout from "../layouts/Layout.astro";
 import cover from "../images/book-cover.jpg";
+import Readers from "../components/Readers.astro";
 ---
 
 <Layout title="Crafting Lambda Functions in Rust - Ebook">
@@ -46,6 +47,7 @@ import cover from "../images/book-cover.jpg";
         </nav>
       </div>
     </header>
+
     <main class="flex-1">
       <section class="py-12 lg:py-24">
         <div
@@ -76,37 +78,39 @@ import cover from "../images/book-cover.jpg";
               Rust programming language.
             </p>
 
-            <div>
-              <div>Buy now! <strike>39.90</strike> 14.90 $</div>
+            <div class="flex flex-col gap-2 md:max-w-80">
+              <a
+                href="#"
+                class="text-center font-semibold rounded-lg bg-primary/80 text-primary-foreground/90 hover:bg-primary hover:text-primary-foreground py-4 px-8 shadow-md hover:shadow-lg transition-colors focus-visible:ring-1 focus-visible:ring-ring"
+                >Buy now! <strike class="font-normal stroke-slate-500"
+                  >39.90</strike
+                > 14.90 $</a
+              >
+              <p class="text-sm text-center text-muted-foreground font-bold">
+                Early-access discount!
+              </p>
             </div>
 
-            <div class="flex flex-col gap-2 mx-auto min-[400px]:flex-row">
-              <div class="flex flex-col justify-center align-middle gap-1">
-                <a
-                  class="relative rounded-md p-[2px] overflow-hidden group bg-primary"
-                  href="#"
-                >
-                  <span
-                    class="group-hover:animate-[spin_4s_linear_infinite] group-hover:bg-[conic-gradient(from_90deg_at_50%_50%,hsl(var(--destructive))_0%,hsl(var(--primary))_50%,hsl(var(--destructive))_100%)] absolute block h-[600px] w-[600px] rounded-md"
-                  ></span>
-                  <span
-                    class="left-[1px] top-[1px] relative z-20 inline-flex h-10 items-center justify-center rounded-md bg-primary text-foreground px-8 text-sm font-medium shadow transition-colors focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-                  >
-                    Buy Now&nbsp;<strike>$39.90</strike>&nbsp;<strong
-                      >$14.90</strong
-                    >
-                  </span>
-                </a>
-
-                <p class="text-sm text-center text-muted-foreground font-bold">
-                  Early-access discount!
-                </p>
-              </div>
+            <div>
+              <Readers total={100} />
             </div>
           </div>
         </div>
       </section>
-      <section>
+
+      <section class="my-12 px-4 md:px-6 text-foreground">
+        <h2>Social Proof</h2>
+        <blockquote>
+          <p>
+            As someone with a strong JavaScript background I did not expect this
+            book to make me so productive at writing my first Lambda functions
+            using Rust. It definitely accelerated my path to production!
+          </p>
+          <p>- Super Mario</p>
+        </blockquote>
+      </section>
+
+      <section class="my-12 px-4 md:px-6 text-foreground">
         <p>
           Looking to build efficient and sustainable AWS solutions that won't
           break the bank? Wondering how the Rust programming language could help
@@ -115,233 +119,321 @@ import cover from "../images/book-cover.jpg";
           cost-effective serverless solutions using AWS and Rust.
         </p>
       </section>
-      <section id="features" class="py-12 lg:py-24">
-        <div class="container space-y-12 px-4 md:px-6">
-          <div class="text-center">
-            <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">
-              Key Features
-            </h2>
-            <p
-              class="max-w-[700px] mx-auto text-gray-500 md:text-xl/relaxed dark:text-gray-400"
-            >
-              Dive into the features that make this book essential for anyone
-              interested in Rust and serverless computing.
-            </p>
-          </div>
-          <div
-            class="grid items-start gap-6 md:gap-12 lg:grid-cols-2 lg:gap-10 xl:grid-cols-3"
-          >
-            <div class="flex flex-col items-center space-y-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="w-12 h-12"
-              >
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-              </svg>
-              <h3 class="text-lg font-bold">Comprehensive Guide</h3>
-              <p class="text-sm text-gray-500 dark:text-gray-400">
-                Learn the ins and outs of writing Lambda functions in Rust with
-                clear examples and explanations.
-              </p>
-            </div>
-            <div class="flex flex-col items-center space-y-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="w-12 h-12"
-              >
-                <polyline points="4 17 10 11 4 5"></polyline>
-                <line x1="12" x2="20" y1="19" y2="19"></line>
-              </svg>
-              <h3 class="text-lg font-bold">Hands-On Examples</h3>
-              <p class="text-sm text-gray-500 dark:text-gray-400">
-                Put your knowledge to the test with practical exercises that
-                demonstrate real-world use cases.
-              </p>
-            </div>
-            <div class="flex flex-col items-center space-y-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="w-12 h-12"
-              >
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-              </svg>
-              <h3 class="text-lg font-bold">Expert Tips</h3>
-              <p class="text-sm text-gray-500 dark:text-gray-400">
-                Discover best practices and shortcuts from experienced Rust
-                developers.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="author" class="py-12 lg:py-24">
+
+      <section id="features" class="my-12 px-4 md:px-6 text-foreground">
         <div
-          class="container flex flex-col gap-6 px-4 md:px-6 lg:gap-10 xl:grid-cols-3"
+          class="grid items-start gap-6 md:gap-12 lg:grid-cols-3 lg:gap-10 xl:grid-cols-3"
         >
-          <div class="space-y-2">
-            <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">
-              About the Author
-            </h2>
-            <p
-              class="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
+          <div class="flex flex-col space-y-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-12 h-12 text-accent"
             >
-              John Smith is a software engineer with a passion for cloud
-              computing and open-source development. He has been working with
-              Rust since its early days and has contributed to several
-              high-profile projects.
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            <h3 class="text-lg font-bold">Comprehensive Guide</h3>
+            <p class="text-sm">
+              Learn the ins and outs of writing Lambda functions in Rust with
+              clear examples and explanations.
             </p>
           </div>
-          <img
-            src="/placeholder.svg"
-            width="400"
-            height="560"
-            alt="Author"
-            class="mx-auto aspect-[3/4] overflow-hidden rounded-lg object-cover object-center"
-          />
+          <div class="flex flex-col space-y-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-12 h-12 text-accent"
+            >
+              <polyline points="4 17 10 11 4 5"></polyline>
+              <line x1="12" x2="20" y1="19" y2="19"></line>
+            </svg>
+            <h3 class="text-lg font-bold">Hands-On Examples</h3>
+            <p class="text-sm">
+              Put your knowledge to the test with practical exercises that
+              demonstrate real-world use cases.
+            </p>
+          </div>
+          <div class="flex flex-col space-y-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-12 h-12 text-accent"
+            >
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <h3 class="text-lg font-bold">Expert Tips</h3>
+            <p class="text-sm">
+              Discover best practices and shortcuts from experienced Rust
+              developers.
+            </p>
+          </div>
         </div>
       </section>
-      <section id="testimonials" class="py-12 lg:py-24">
-        <div class="container space-y-12 px-4 md:px-6">
-          <div class="text-center">
-            <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">
-              What Readers Are Saying
-            </h2>
-          </div>
-          <div
-            class="grid items-start gap-6 md:gap-12 lg:grid-cols-2 lg:gap-10"
-          >
-            <div class="flex flex-col gap-2">
-              <p class="text-gray-500 dark:text-gray-400">
-                “This book is a game-changer for anyone interested in combining
-                the power of Rust with the flexibility of serverless computing.
-                The author does an excellent job of breaking down complex
-                concepts into easy-to-understand examples. Highly recommended!”
-              </p>
-              <div class="flex items-center space-x-2">
-                <div class="font-medium">Alice Johnson</div>
-                <div class="text-sm text-gray-500">- @ajohnson</div>
-              </div>
+
+      <section class="my-12 px-4 md:px-6 text-foreground">
+        <h2>What's in the book</h2>
+        <p>TODO: work in progress. Things might change</p>
+        <p>
+          TODO: list of chapters (mark completed and in progress and expected
+          delivery time)
+        </p>
+        <p>TODO: progress bar</p>
+        <ol class="list-disc pl-8 flex flex-col gap-2">
+          <li>
+            <h3>Chapter 1: Rust &amp; Lambda, a love story.</h3>
+            <h4>
+              Why this combo makes a ton of sense compared to other
+              alternatives.
+            </h4>
+          </li>
+          <li>
+            <h3>Chapter 2: an oxidised serverless "Hello, World".</h3>
+            <h4>Writing our first Rust-powered Lambda Function.</h4>
+          </li>
+          <li>
+            <h3>Chapter 3: Infrastructure as code with SAM.</h3>
+            <h4>
+              How to deploy and manage Rust Lambda functions with the Serverless
+              Application Model.
+            </h4>
+          </li>
+          <li>
+            <h3>Chapter 4: Integrating with external systems.</h3>
+            <h4>
+              How to make arbitrary HTTP requests or to other AWS services from
+              your Lambda functions.
+            </h4>
+          </li>
+          <li>
+            <h3>Chapter 5: Handling different kinds of events.</h3>
+            <h4>
+              How to handle AWS Specific events, custom events and arbitrary
+              JSON in a strongly-typed way.
+            </h4>
+          </li>
+          <li>
+            <h3>Chapter 6: Handling different kinds of events.</h3>
+            <h4>
+              How to handle AWS Specific events, custom events and arbitrary
+              JSON in a strongly-typed way.
+            </h4>
+          </li>
+          <li>
+            <h3>Chapter 7: Different ways of writing Lambda handlers</h3>
+            <h4>
+              From simple async functions, to custom structs, to implementing
+              the Tokio Tower service trait.
+            </h4>
+          </li>
+          <li>
+            <h3>Chapter 8: Making the code testable</h3>
+            <h4>
+              How to structure the code to be able to write good tests for your
+              Lambda
+            </h4>
+          </li>
+          <li>
+            <h3>Chapter 9: Configuration management and handling secrets</h3>
+            <h4>
+              Best practices to inject configuration and secrets into your Rust
+              Lambda functions.
+            </h4>
+          </li>
+          <li>
+            <h3>Chapter 10: Code organisation</h3>
+            <h4>
+              Best practices on how to organise the code for projects with
+              multiple Lambda functions.
+            </h4>
+          </li>
+          <li>
+            <h3>Chapter 11: Observing all the things</h3>
+            <h4>
+              How to make our Rust Lambda functions observable using CloudWatch
+              or OpenTelemetry.
+            </h4>
+          </li>
+          <li>
+            <h3>Chapter 12: Reaching the speed of light</h3>
+            <h4>
+              How to benchmark and fine tune your Rust Lambda Functions for
+              maximum performance.
+            </h4>
+          </li>
+          <li>
+            <h3>Chapter 13: Middlewares</h3>
+            <h4>
+              How to embrace the middleware pattern to handle cross-cutting
+              concerns in an elegant and reusable way.
+            </h4>
+          </li>
+          <li>
+            <h3>Chapter 14: Hosting existing HTTP services</h3>
+            <h4>
+              How to wrap existing HTTP services in a Lambda function to make
+              them easily available as serverless functions.
+            </h4>
+          </li>
+          <li>
+            <h3>Chapter 15: Lambda extensions</h3>
+            <h4>Writing Lambda extensions using Rust.</h4>
+          </li>
+          <li>
+            <h3>Chapter 16: Integrating with GitHub Actions</h3>
+            <h4>
+              How to configure the integration between AWS and GitHub Actions to
+              test, build and deploy your Lambda Functions in an automated
+              fashion.
+            </h4>
+          </li>
+          <li>
+            <h3>Appendixes</h3>
+            <h4>How to use CDK or Terraform as an alternative to SAM.</h4>
+          </li>
+        </ol>
+      </section>
+
+      <section class="my-12 px-4 md:px-6 text-foreground">
+        <h2>Meet the author</h2>
+        <p>TODO</p>
+      </section>
+
+      <section class="my-12 px-4 md:px-6 text-foreground">
+        <h2>Opinions from the readers</h2>
+        <p>TODO</p>
+
+        <div class="grid items-start gap-6 md:gap-12 lg:grid-cols-2 lg:gap-10">
+          <div class="flex flex-col gap-2">
+            <p class="text-gray-500 dark:text-gray-400">
+              “This book is a game-changer for anyone interested in combining
+              the power of Rust with the flexibility of serverless computing.
+              The author does an excellent job of breaking down complex concepts
+              into easy-to-understand examples. Highly recommended!”
+            </p>
+            <div class="flex items-center space-x-2">
+              <div class="font-medium">Alice Johnson</div>
+              <div class="text-sm text-gray-500">- @ajohnson</div>
             </div>
-            <div class="flex flex-col gap-2">
-              <p class="text-gray-500 dark:text-gray-400">
-                “As a longtime fan of Rust, I was excited to dive into this
-                book, and it did not disappoint. The hands-on examples really
-                helped me understand how to write efficient and elegant Lambda
-                functions. Kudos to the author for creating such a valuable
-                resource!”
-              </p>
-              <div class="flex items-center space-x-2">
-                <div class="font-medium">Bob Lee</div>
-                <div class="text-sm text-gray-500">- @bob_lee</div>
-              </div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <p class="text-gray-500 dark:text-gray-400">
+              “As a longtime fan of Rust, I was excited to dive into this book,
+              and it did not disappoint. The hands-on examples really helped me
+              understand how to write efficient and elegant Lambda functions.
+              Kudos to the author for creating such a valuable resource!”
+            </p>
+            <div class="flex items-center space-x-2">
+              <div class="font-medium">Bob Lee</div>
+              <div class="text-sm text-gray-500">- @bob_lee</div>
             </div>
           </div>
         </div>
       </section>
-      <section id="faq" class="py-12 lg:py-24">
-        <div class="container space-y-12 px-4 md:px-6">
-          <div class="text-center">
-            <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">FAQ</h2>
-          </div>
-          <div class="space-y-4">
-            <div class="border-t border-gray-200 dark:border-gray-800">
-              <div class="flex items-center justify-between py-4">
-                <button
-                  class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 text-left w-full"
-                >
-                  Is this book suitable for beginners?
-                </button>
-                <button
-                  class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 ml-2"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="w-4 h-4"
-                  >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
-                </button>
-              </div>
-              <div
-                class="grid gap-2 px-4 pb-4 text-sm text-gray-500 border-t dark:text-gray-400"
+
+      <section class="my-12 px-4 md:px-6 text-foreground">
+        <h2>Free chapter</h2>
+        <p>TODO</p>
+      </section>
+
+      <section class="my-12 px-4 md:px-6 text-foreground">
+        <h2>FAQS</h2>
+        <p>TODO</p>
+        <div class="space-y-4">
+          <div class="border-t border-gray-200 dark:border-gray-800">
+            <div class="flex items-center justify-between py-4">
+              <button
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 text-left w-full"
               >
-                Yes, the book is designed to be accessible to readers with basic
-                knowledge of Rust. The early chapters provide a gentle
-                introduction to Lambda functions and serverless computing.
-              </div>
+                Is this book suitable for beginners?
+              </button>
+              <button
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 ml-2"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-4 h-4"
+                >
+                  <path d="m6 9 6 6 6-6"></path>
+                </svg>
+              </button>
             </div>
-            <div class="border-t border-gray-200 dark:border-gray-800">
-              <div class="flex items-center justify-between py-4">
-                <button
-                  class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 text-left w-full"
-                >
-                  Are the code examples available for download?
-                </button>
-                <button
-                  class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 ml-2"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="w-4 h-4"
-                  >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
-                </button>
-              </div>
-              <div
-                class="grid gap-2 px-4 pb-4 text-sm text-gray-500 border-t dark:text-gray-400"
+            <div
+              class="grid gap-2 px-4 pb-4 text-sm text-gray-500 border-t dark:text-gray-400"
+            >
+              Yes, the book is designed to be accessible to readers with basic
+              knowledge of Rust. The early chapters provide a gentle
+              introduction to Lambda functions and serverless computing.
+            </div>
+          </div>
+          <div class="border-t border-gray-200 dark:border-gray-800">
+            <div class="flex items-center justify-between py-4">
+              <button
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 text-left w-full"
               >
-                Yes, the book is designed to be accessible to readers with basic
-                knowledge of Rust. The early chapters provide a gentle
-                introduction to Lambda functions and serverless computing.
-              </div>
+                Are the code examples available for download?
+              </button>
+              <button
+                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 ml-2"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-4 h-4"
+                >
+                  <path d="m6 9 6 6 6-6"></path>
+                </svg>
+              </button>
+            </div>
+            <div
+              class="grid gap-2 px-4 pb-4 text-sm text-gray-500 border-t dark:text-gray-400"
+            >
+              Yes, the book is designed to be accessible to readers with basic
+              knowledge of Rust. The early chapters provide a gentle
+              introduction to Lambda functions and serverless computing.
             </div>
           </div>
         </div>
       </section>
     </main>
+
     <footer class="border-t">
       <div
         class="container flex flex-col gap-4 py-8 md:py-12 px-4 text-center md:flex-row md:items-center md:justify-between md:gap-6 md:px-6 lg:gap-10"
