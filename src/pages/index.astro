@@ -5,7 +5,9 @@ import Layout from "../layouts/Layout.astro";
 import cover from "../images/book-cover.jpg";
 import Readers from "../components/Readers.astro";
 import Avatar from "../components/ui/Avatar.astro";
+import Terminal from "../components/Terminal.astro";
 import guy from "../images/devs/guy.png";
+import applicationComposer from "../images/application-composer.png";
 
 const rustCodeExample = `async fn function_handler(
     event: LambdaEvent<EventBridgeEvent<Value>>,
@@ -137,13 +139,9 @@ const rustCodeExample = `async fn function_handler(
               <a
                 href="/buy"
                 class="text-center font-semibold rounded-lg bg-primary/80 text-primary-foreground/90 hover:bg-primary hover:text-primary-foreground py-4 px-8 shadow-md hover:shadow-lg transition-colors focus-visible:ring-1 focus-visible:ring-ring"
-                >Buy now! <strike class="font-normal stroke-slate-500"
-                  >39.90</strike
-                > 14.90 $</a
+                >Buy now!</a
               >
-              <p
-                class="text-sm text-center text-muted-foreground font-semibold"
-              >
+              <p class="text-sm text-left text-muted-foreground font-semibold">
                 <a
                   href="#early-access"
                   class="border-b border-border-foreground border-dotted pb-1"
@@ -151,7 +149,10 @@ const rustCodeExample = `async fn function_handler(
                     >Early-Access<sup class="sup text-[.5rem] -top-2 relative"
                       >TM</sup
                     ></span
-                  > package!</a
+                  > e-book package for just <strike
+                    class="font-normal line-through decoration-destructive/50 decoration-2"
+                    >39.90</strike
+                  > 14.90 $!</a
                 >
               </p>
             </div>
@@ -170,10 +171,10 @@ const rustCodeExample = `async fn function_handler(
           <blockquote
             class="text-lg leading-loose font-serif italic text-foreground border-l-2 border-border pl-3 sm:text-xl md:pl-4 md:text-2xl"
           >
-            "As someone with a strong JavaScript background, I did not expect
-            this book to make me so productive at writing Lambda functions using
-            Rust. It definitely accelerated my path to production and the gains
-            are insane!"
+            "As someone with a strong JavaScript background and very little
+            Rust, I did not expect this book to make me so productive at writing
+            Lambda functions using Rust. It definitely accelerated my path to
+            production and the gains are insane!"
           </blockquote>
           <div
             class="flex items-center justify-center space-x-2 lg:justify-start"
@@ -215,19 +216,14 @@ const rustCodeExample = `async fn function_handler(
           class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm mr-16"
         >
           <div class="w-7/12 absolute -right-8 top-4 shadow-md">
-            <div
-              class="bg-gray-200 text-center text-xs text-gray-700 font-semibold rounded-t-sm py-1 shadow-inner border border-gray-300"
-            >
-              <span class="drop-shadow-sm">handler.rs</span>
-            </div>
-            <div class="bg-black/75 rounded-b-sm shadow-inner">
+            <Terminal title="handler.rs">
               <Code
                 class="p-2 text-xs rounded-b-sm max-h-44"
                 code={rustCodeExample}
                 lang="rust"
                 theme="aurora-x"
               />
-            </div>
+            </Terminal>
           </div>
           <div class="w-5/12">
             <div class="flex flex-col space-y-2">
@@ -246,7 +242,7 @@ const rustCodeExample = `async fn function_handler(
                 <polyline points="4 17 10 11 4 5"></polyline>
                 <line x1="12" x2="20" y1="19" y2="19"></line>
               </svg>
-              <h2 class="text-lg font-bold">Real hands-on code examples</h2>
+              <h2 class="text-lg font-bold">Hands-on code examples</h2>
               <p>
                 Learn by doing with practical and realistic code examples that
                 demonstrate how to write efficient and sustainable Lambda
@@ -259,9 +255,46 @@ const rustCodeExample = `async fn function_handler(
 
       <section class="my-12 px-4 md:px-6 text-foreground">
         <div
-          class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm ml-16"
+          class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm ml-16 flex flex-col items-end"
         >
-          test
+          <div
+            class="w-7/12 absolute -left-8 top-4 rounded-md border border-border shadow-md h-[calc(100%-2rem)] glow"
+          >
+            <Image
+              src={applicationComposer}
+              width={700}
+              height={180}
+              class="rounded-md w-full h-full object-cover"
+              alt="A screenshot of Application Composer showcasing an API Gateway connected to multiple Lambda functions"
+            />
+          </div>
+          <div class="w-5/12">
+            <div class="flex flex-col space-y-2 self-end justify-self-end">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-12 h-12 text-accent"
+                ><path d="M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 9"
+                ></path><polyline points="13 11 9 17 15 17 11 23"
+                ></polyline></svg
+              >
+              <h2 class="text-lg font-bold">Design serverless architectures</h2>
+              <p>
+                It's not just about the Lambda functions! Learn how to design
+                complete serverless architectures using AWS services like <strong
+                  >API Gateway</strong
+                >, <strong>EventBridge</strong>, <strong>DynamoDB</strong>, and
+                more using <strong>Infrastructure as Code</strong>.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -269,79 +302,41 @@ const rustCodeExample = `async fn function_handler(
         <div
           class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm mr-16"
         >
-          test
-        </div>
-      </section>
-
-      <section id="features" class="my-12 px-4 md:px-6 text-foreground">
-        <div
-          class="grid items-start gap-6 md:gap-12 lg:grid-cols-3 lg:gap-10 xl:grid-cols-3"
-        >
-          <div class="flex flex-col space-y-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-12 h-12 text-accent"
-            >
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-            </svg>
-            <h3 class="text-lg font-bold">Comprehensive Guide</h3>
-            <p class="text-sm">
-              Learn the ins and outs of writing Lambda functions in Rust with
-              clear examples and explanations.
-            </p>
+          <div class="w-7/12 absolute -right-8 top-16 shadow-md">
+            <Terminal title="~/my-awesome-rust-lambda">
+              <Code
+                class="p-2 text-lg rounded-b-sm max-h-44"
+                code={"$ cargo lambda build --release --arm64\n\n\n"}
+                lang="bash"
+                theme="aurora-x"
+              />
+            </Terminal>
           </div>
-          <div class="flex flex-col space-y-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-12 h-12 text-accent"
-            >
-              <polyline points="4 17 10 11 4 5"></polyline>
-              <line x1="12" x2="20" y1="19" y2="19"></line>
-            </svg>
-            <h3 class="text-lg font-bold">Hands-On Examples</h3>
-            <p class="text-sm">
-              Put your knowledge to the test with practical exercises that
-              demonstrate real-world use cases.
-            </p>
-          </div>
-          <div class="flex flex-col space-y-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="w-12 h-12 text-accent"
-            >
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-              <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>
-            <h3 class="text-lg font-bold">Expert Tips</h3>
-            <p class="text-sm">
-              Discover best practices and shortcuts from experienced Rust
-              developers.
-            </p>
+          <div class="w-5/12">
+            <div class="flex flex-col space-y-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-12 h-12 text-accent"
+                ><path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                ></path></svg
+              >
+              <h2 class="text-lg font-bold">The tools of the trade</h2>
+              <p>
+                Discover the best tools and practices to <strong>build</strong>, <strong
+                  >test</strong
+                >, and <strong>deploy</strong>
+                <strong>production-grade</strong> Lambda functions using Rust.
+              </p>
+            </div>
           </div>
         </div>
       </section>
