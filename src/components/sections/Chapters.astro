@@ -1,0 +1,238 @@
+---
+import BuyButton from "../BuyButton.astro";
+import Progress from "../ui/Progress.astro";
+import AlertIcon from "../icons/AlertIcon.astro";
+import Badge from "../ui/Badge.astro";
+
+type Status = "completed" | "draft" | "in-progress" | "planned";
+
+type Chapter = {
+  section: string;
+  title: string;
+  description: string;
+  status: Status;
+};
+
+function statusDesc(status: Status): string {
+  switch (status) {
+    case "completed":
+      return "Completed";
+    case "draft":
+      return "Draft";
+    case "in-progress":
+      return "In progress";
+    case "planned":
+      return "Planned";
+  }
+}
+
+function statusVariant(
+  status: Status
+): "default" | "accent" | "secondary" | "outline" {
+  switch (status) {
+    case "completed":
+      return "default";
+    case "draft":
+      return "accent";
+    case "in-progress":
+      return "secondary";
+    case "planned":
+      return "outline";
+  }
+}
+
+const chapters: Chapter[] = [
+  {
+    section: "Chapter 1",
+    title: "Rust & Lambda, a love story",
+    description:
+      "Why this combo makes a ton of sense compared to other alternatives.",
+    status: "in-progress",
+  },
+  {
+    section: "Chapter 2",
+    title: "An oxidised serverless 'Hello, World'",
+    description: "Writing our first Rust-powered Lambda Function.",
+    status: "planned",
+  },
+  {
+    section: "Chapter 3",
+    title: "Infrastructure as code with SAM",
+    description:
+      "How to deploy and manage Rust Lambda functions with the Serverless Application Model.",
+    status: "planned",
+  },
+  {
+    section: "Chapter 4",
+    title: "Integrating with external systems",
+    description:
+      "How to make arbitrary HTTP requests or to other AWS services from your Lambda functions.",
+    status: "planned",
+  },
+  {
+    section: "Chapter 5",
+    title: "Handling different kinds of events",
+    description:
+      "How to handle AWS Specific events, custom events and arbitrary JSON in a strongly-typed way.",
+    status: "planned",
+  },
+  {
+    section: "Chapter 6",
+    title: "Different ways of writing Lambda handlers",
+    description:
+      "From simple async functions, to custom structs, to implementing the Tokio Tower service trait.",
+    status: "planned",
+  },
+  {
+    section: "Chapter 7",
+    title: "Making the code testable",
+    description:
+      "How to structure the code to be able to write good tests for your Lambda",
+    status: "planned",
+  },
+  {
+    section: "Chapter 8",
+    title: "Configuration management and handling secrets",
+    description:
+      "Best practices to inject configuration and secrets into your Rust Lambda functions.",
+    status: "planned",
+  },
+  {
+    section: "Chapter 9",
+    title: "Code organisation",
+    description:
+      "Best practices on how to organise the code for projects with multiple Lambda functions.",
+    status: "planned",
+  },
+  {
+    section: "Chapter 10",
+    title: "Observing all the things",
+    description:
+      "How to make our Rust Lambda functions observable using CloudWatch or OpenTelemetry.",
+    status: "planned",
+  },
+  {
+    section: "Chapter 11",
+    title: "Middlewares",
+    description:
+      "How to embrace the middleware pattern to handle cross-cutting concerns in an elegant and reusable way.",
+    status: "planned",
+  },
+  {
+    section: "Chapter 12",
+    title: "Hosting existing HTTP services",
+    description:
+      "How to wrap existing HTTP services in a Lambda function to make them easily available as serverless functions.",
+    status: "planned",
+  },
+  {
+    section: "Chapter 13",
+    title: "Lambda extensions",
+    description: "Writing Lambda extensions using Rust.",
+    status: "planned",
+  },
+  {
+    section: "Chapter 14",
+    title: "Integrating with GitHub Actions",
+    description:
+      "How to configure the integration between AWS and GitHub Actions to test, build and deploy your Lambda Functions in an automated fashion.",
+    status: "planned",
+  },
+  {
+    section: "Appendix A",
+    title: "IaC alternatives",
+    description: "How to use CDK or Terraform as an alternative to SAM.",
+    status: "planned",
+  },
+];
+
+const completedChapters = chapters.filter(
+  (chapter) => chapter.status === "completed"
+);
+const draftChapters = chapters.filter((chapter) => chapter.status === "draft");
+const inProgressChapters = chapters.filter(
+  (chapter) => chapter.status === "in-progress"
+);
+const plannedChapters = chapters.filter(
+  (chapter) => chapter.status === "planned"
+);
+
+const progress =
+  (inProgressChapters.length * 0.5 +
+    draftChapters.length * 0.8 +
+    completedChapters.length) /
+  chapters.length;
+---
+
+<section class="my-12 px-4 md:px-6 text-foreground">
+  <div
+    class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
+  >
+    <h2
+      class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
+    >
+      What's inside?
+    </h2>
+  </div>
+
+  <div
+    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm mr-16"
+  >
+    <div
+      class="float-end ml-4 bg-card/75 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm -mr-16 shadow-sm max-w-96"
+    >
+      <div class="flex gap-2 text-primary font-semibold mb-4">
+        <AlertIcon /> This book is a work in progress!
+      </div>
+      <div class="my-6">
+        <span class="text-muted-foreground text-sm"
+          >Progress ({progress.toFixed(2)}%)</span
+        >
+        <Progress value={progress} class="w-full mt-2" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <p class="text-sm font-semibold">The content is subject to change.</p>
+        <p class="text-sm">
+          If you get the EARLY-ACCESS package, you'll have access to new
+          chapters and updates and you will be able to contribute with your
+          precious feedback.
+        </p>
+        <p class="mt-6">
+          <BuyButton />
+        </p>
+      </div>
+    </div>
+
+    <p class="text-xl/8 mb-16 max-w-[32rem]">
+      This book consists of <strong>{chapters.length} chapters</strong>, each a
+      step forward on your journey to bring Rust and AWS Lambda into production,
+      unlocking gains in performance and cost efficiency. Explore the seamless
+      integration of Rust with Lambda and witness the transformative impact it
+      can have on your projects.
+    </p>
+
+    <ol class="flex flex-col gap-12">
+      {
+        chapters.map((chapter) => (
+          <li class="max-w-[32rem]">
+            <Badge
+              class="float-end mt-4"
+              intent={statusVariant(chapter.status)}
+            >
+              {statusDesc(chapter.status)}
+            </Badge>
+            <h3>
+              <span class="uppercase text-muted-foreground font-bold text-sm block">
+                {chapter.section}.
+              </span>
+              <span class="text-primary font-bold text-xl">
+                {chapter.title}
+              </span>
+            </h3>
+            <h4 class="text-muted-foreground mt-2">{chapter.description}</h4>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

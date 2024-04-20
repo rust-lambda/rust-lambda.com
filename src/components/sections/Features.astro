@@ -1,0 +1,165 @@
+---
+import { Code } from "astro:components";
+import { Image } from "astro:assets";
+import Terminal from "../Terminal.astro";
+import TerminalIcon from "../icons/TerminalIcon.astro";
+import StormIcon from "../icons/StormIcon.astro";
+import WrenchIcon from "../icons/WrenchIcon.astro";
+import applicationComposer from "../../images/application-composer.png";
+
+const rustCodeExample = `async fn function_handler(
+    event: LambdaEvent<EventBridgeEvent<Value>>,
+) -> Result<(), Error> {
+    let start = Instant::now();
+    let resp = reqwest::get("https://loige.co").await;
+    let duration = start.elapsed();
+
+    let timestamp = event
+        .payload
+        .time
+        .unwrap_or_else(chrono::Utc::now)
+        .format("%+")
+        .to_string();
+    
+    let mut item = HashMap::new();
+    item.insert(
+        "Id".to_string(),
+        AttributeValue::S(format!("{}#{}", "https://loige.co", timestamp)),
+    );
+    item.insert("Timestamp".to_string(), AttributeValue::S(timestamp));
+
+    let success = match resp {
+        Ok(resp) => {
+            let status = resp.status().as_u16();
+            item.insert("Status".to_string(), AttributeValue::N(status.to_string()));
+            item.insert(
+                "Duration".to_string(),
+                AttributeValue::N(duration.as_millis().to_string()),
+            );
+            resp.status().is_success()
+        }
+        Err(e) => {
+            item.insert("Error".to_string(), AttributeValue::S(e.to_string()));
+            false
+        }
+    };
+    item.insert("Success".to_string(), AttributeValue::Bool(success));
+
+    let insert_result = dynamodb_client
+        .put_item()
+        .table_name("my_dynamo_table")
+        .set_item(Some(item))
+        .send()
+        .await?;
+
+    tracing::info!("Insert result: {:?}", insert_result);
+
+    Ok(())
+}`;
+---
+
+<section
+  class="mt-40 my-12 px-4 md:px-6 text-foreground flex flex-col justify-center align-middle gap-4 items-center"
+>
+  <h2
+    class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
+  >
+    What will you get from this book?
+  </h2>
+  <p class="max-w-[600px] text-lg text-foreground">
+    Are you looking to build <strong>efficient</strong> and <strong
+      >sustainable</strong
+    > AWS serverless solutions that won't break the bank? Wondering how the Rust
+    programming language could help you achieve that? You've come to the right place!
+    Check out this practical guide for all the tips and tricks you need to know to
+    create cost-effective serverless solutions using AWS and Rust.
+  </p>
+</section>
+
+<section class="my-12 px-4 md:px-6 text-foreground">
+  <div
+    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm mr-16"
+  >
+    <div class="w-7/12 absolute -right-8 top-4 shadow-md">
+      <Terminal title="handler.rs">
+        <Code
+          class="p-2 text-xs rounded-b-sm max-h-44"
+          code={rustCodeExample}
+          lang="rust"
+          theme="aurora-x"
+        />
+      </Terminal>
+    </div>
+    <div class="w-5/12">
+      <div class="flex flex-col space-y-2">
+        <TerminalIcon class="w-12 h-12 text-accent" />
+        <h2 class="text-lg font-bold">Hands-on code examples</h2>
+        <p>
+          Learn by doing with practical and realistic code examples that
+          demonstrate how to write efficient and sustainable Lambda functions in
+          Rust.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="my-12 px-4 md:px-6 text-foreground">
+  <div
+    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm ml-16 flex flex-col items-end"
+  >
+    <div
+      class="w-7/12 absolute -left-8 top-4 rounded-md border border-border shadow-md h-[calc(100%-2rem)] glow"
+    >
+      <Image
+        src={applicationComposer}
+        width={700}
+        height={180}
+        class="rounded-md w-full h-full object-cover"
+        alt="A screenshot of Application Composer showcasing an API Gateway connected to multiple Lambda functions"
+      />
+    </div>
+    <div class="w-5/12">
+      <div class="flex flex-col space-y-2 self-end justify-self-end">
+        <StormIcon class="w-12 h-12 text-accent" />
+        <h2 class="text-lg font-bold">Design serverless architectures</h2>
+        <p>
+          It's not just about the Lambda functions! Learn how to design complete
+          serverless architectures using AWS services like <strong
+            >API Gateway</strong
+          >, <strong>EventBridge</strong>, <strong>DynamoDB</strong>, and more
+          using <strong>Infrastructure as Code</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="my-12 px-4 md:px-6 text-foreground">
+  <div
+    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm mr-16"
+  >
+    <div class="w-7/12 absolute -right-8 top-16 shadow-md">
+      <Terminal title="~/my-awesome-rust-lambda">
+        <Code
+          class="p-2 text-lg rounded-b-sm max-h-44"
+          code={"$ cargo lambda build --release --arm64\n\n\n"}
+          lang="bash"
+          theme="aurora-x"
+        />
+      </Terminal>
+    </div>
+    <div class="w-5/12">
+      <div class="flex flex-col space-y-2">
+        <WrenchIcon class="w-12 h-12 text-accent" />
+        <h2 class="text-lg font-bold">The tools of the trade</h2>
+        <p>
+          Discover the best tools and practices to <strong>build</strong>, <strong
+            >test</strong
+          >, and <strong>deploy</strong>
+          <strong>production-grade</strong> Lambda functions using Rust.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

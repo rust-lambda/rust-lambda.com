@@ -1,63 +1,9 @@
 ---
-import Image from "astro/components/Image.astro";
-import { Code } from "astro:components";
 import Layout from "../layouts/Layout.astro";
-import cover from "../images/book-cover.jpg";
-import Readers from "../components/Readers.astro";
-import Avatar from "../components/ui/Avatar.astro";
-import Terminal from "../components/Terminal.astro";
-import guy from "../images/devs/guy.png";
-import applicationComposer from "../images/application-composer.png";
-
-const rustCodeExample = `async fn function_handler(
-    event: LambdaEvent<EventBridgeEvent<Value>>,
-) -> Result<(), Error> {
-    let start = Instant::now();
-    let resp = reqwest::get("https://loige.co").await;
-    let duration = start.elapsed();
-
-    let timestamp = event
-        .payload
-        .time
-        .unwrap_or_else(chrono::Utc::now)
-        .format("%+")
-        .to_string();
-    
-    let mut item = HashMap::new();
-    item.insert(
-        "Id".to_string(),
-        AttributeValue::S(format!("{}#{}", "https://loige.co", timestamp)),
-    );
-    item.insert("Timestamp".to_string(), AttributeValue::S(timestamp));
-
-    let success = match resp {
-        Ok(resp) => {
-            let status = resp.status().as_u16();
-            item.insert("Status".to_string(), AttributeValue::N(status.to_string()));
-            item.insert(
-                "Duration".to_string(),
-                AttributeValue::N(duration.as_millis().to_string()),
-            );
-            resp.status().is_success()
-        }
-        Err(e) => {
-            item.insert("Error".to_string(), AttributeValue::S(e.to_string()));
-            false
-        }
-    };
-    item.insert("Success".to_string(), AttributeValue::Bool(success));
-
-    let insert_result = dynamodb_client
-        .put_item()
-        .table_name("my_dynamo_table")
-        .set_item(Some(item))
-        .send()
-        .await?;
-
-    tracing::info!("Insert result: {:?}", insert_result);
-
-    Ok(())
-}`;
+import Hero from "../components/sections/Hero.astro";
+import LeadQuote from "../components/sections/LeadQuote.astro";
+import Features from "../components/sections/Features.astro";
+import Chapters from "../components/sections/Chapters.astro";
 ---
 
 <Layout title="Crafting Lambda Functions in Rust - E-book">
@@ -104,369 +50,57 @@ const rustCodeExample = `async fn function_handler(
     </header>
 
     <main class="flex-1">
-      <section class="py-12 lg:py-24">
+      <Hero />
+      <LeadQuote />
+      <Features />
+      <Chapters />
+
+      <section class="my-12 px-4 md:px-6 text-foreground">
         <div
-          class="container flex flex-col items-center gap-10 px-4 md:px-6 lg:gap-16 lg:flex-row"
+          class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
         >
-          <Image
-            src={cover}
-            width="400"
-            height="600"
-            alt="Crafting Lambda Functions in Rust: Book Cover"
-            quality={90}
-            decoding="sync"
-            loading="eager"
-            class="aspect-[4/6] overflow-hidden rounded-r-md object-cover object-center shadow-lg shadow-black/50"
-          />
-          <div class="space-y-6 text-center lg:text-left">
-            <div class="space-y-2">
-              <h1
-                class="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
-              >
-                Crafting Lambda Functions in Rust
-              </h1>
-            </div>
-            <p
-              class="max-w-[700px] text-foreground/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
-            >
-              A practical guide on how to build <strong>efficient</strong>, <strong
-                >sustainable</strong
-              >, <strong>cost-effective</strong> serverless AWS solutions with the
-              Rust programming language.
-            </p>
-
-            <div class="flex flex-col gap-2 md:max-w-80">
-              <a
-                href="/buy"
-                class="text-center font-semibold rounded-lg bg-primary/80 text-primary-foreground/90 hover:bg-primary hover:text-primary-foreground py-4 px-8 shadow-md hover:shadow-lg transition-colors focus-visible:ring-1 focus-visible:ring-ring"
-                >Buy now!</a
-              >
-              <p class="text-sm text-left text-muted-foreground font-semibold">
-                <a
-                  href="#early-access"
-                  class="border-b border-border-foreground border-dotted pb-1"
-                  >Get the <span class="uppercase font-bold"
-                    >Early-Access<sup class="sup text-[.5rem] -top-2 relative"
-                      >TM</sup
-                    ></span
-                  > e-book package for just <strike
-                    class="font-normal line-through decoration-destructive/50 decoration-2"
-                    >39.90</strike
-                  > 14.90 $!</a
-                >
-              </p>
-            </div>
-
-            <div>
-              <Readers total={100} />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="my-20 px-4 md:px-6 text-foreground">
-        <div
-          class="flex flex-col space-y-2 lg:col-start-3 lg:col-span-8 lg:space-y-4 max-w-[680px] m-auto"
-        >
-          <blockquote
-            class="text-lg leading-loose font-serif italic text-foreground border-l-2 border-border pl-3 sm:text-xl md:pl-4 md:text-2xl"
+          <h2
+            class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
           >
-            "As someone with a strong JavaScript background and very little
-            Rust, I did not expect this book to make me so productive at writing
-            Lambda functions using Rust. It definitely accelerated my path to
-            production and the gains are insane!"
-          </blockquote>
-          <div
-            class="flex items-center justify-center space-x-2 lg:justify-start"
+            Who is this book for
+          </h2>
+        </div>
+      </section>
+
+      <section class="my-12 px-4 md:px-6 text-foreground">
+        <div
+          class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
+        >
+          <h2
+            class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
           >
-            <Avatar
-              class="w-12 h-12"
-              image={guy}
-              fallback="GA"
-              alt="Guy Ackchyually, Junior Cloud Developer"
-            />
-            <div class="text-sm font-medium text-gray-500 dark:text-gray-400">
-              — Guy Ackchyually, Cloud Developer
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="mt-40 my-12 px-4 md:px-6 text-foreground flex flex-col justify-center align-middle gap-4 items-center"
-      >
-        <h2
-          class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
-        >
-          What's inside?
-        </h2>
-        <p class="max-w-[600px] text-lg text-foreground">
-          <strong class="bg-accent">TODO:</strong> Looking to build <strong
-            >efficient</strong
-          > and <strong>sustainable</strong> AWS solutions that won't break the bank?
-          Wondering how the Rust programming language could help you achieve that?
-          You've come to the right place! Check out our practical guide for all the
-          tips and tricks you need to know to create cost-effective serverless solutions
-          using AWS and Rust.
-        </p>
-      </section>
-
-      <section class="my-12 px-4 md:px-6 text-foreground">
-        <div
-          class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm mr-16"
-        >
-          <div class="w-7/12 absolute -right-8 top-4 shadow-md">
-            <Terminal title="handler.rs">
-              <Code
-                class="p-2 text-xs rounded-b-sm max-h-44"
-                code={rustCodeExample}
-                lang="rust"
-                theme="aurora-x"
-              />
-            </Terminal>
-          </div>
-          <div class="w-5/12">
-            <div class="flex flex-col space-y-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="w-12 h-12 text-accent"
-              >
-                <polyline points="4 17 10 11 4 5"></polyline>
-                <line x1="12" x2="20" y1="19" y2="19"></line>
-              </svg>
-              <h2 class="text-lg font-bold">Hands-on code examples</h2>
-              <p>
-                Learn by doing with practical and realistic code examples that
-                demonstrate how to write efficient and sustainable Lambda
-                functions in Rust.
-              </p>
-            </div>
-          </div>
+            The early access bundle
+          </h2>
         </div>
       </section>
 
       <section class="my-12 px-4 md:px-6 text-foreground">
         <div
-          class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm ml-16 flex flex-col items-end"
+          class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
         >
-          <div
-            class="w-7/12 absolute -left-8 top-4 rounded-md border border-border shadow-md h-[calc(100%-2rem)] glow"
+          <h2
+            class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
           >
-            <Image
-              src={applicationComposer}
-              width={700}
-              height={180}
-              class="rounded-md w-full h-full object-cover"
-              alt="A screenshot of Application Composer showcasing an API Gateway connected to multiple Lambda functions"
-            />
-          </div>
-          <div class="w-5/12">
-            <div class="flex flex-col space-y-2 self-end justify-self-end">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="w-12 h-12 text-accent"
-                ><path d="M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 9"
-                ></path><polyline points="13 11 9 17 15 17 11 23"
-                ></polyline></svg
-              >
-              <h2 class="text-lg font-bold">Design serverless architectures</h2>
-              <p>
-                It's not just about the Lambda functions! Learn how to design
-                complete serverless architectures using AWS services like <strong
-                  >API Gateway</strong
-                >, <strong>EventBridge</strong>, <strong>DynamoDB</strong>, and
-                more using <strong>Infrastructure as Code</strong>.
-              </p>
-            </div>
-          </div>
+            Meet the authors
+          </h2>
         </div>
       </section>
 
       <section class="my-12 px-4 md:px-6 text-foreground">
         <div
-          class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm mr-16"
+          class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
         >
-          <div class="w-7/12 absolute -right-8 top-16 shadow-md">
-            <Terminal title="~/my-awesome-rust-lambda">
-              <Code
-                class="p-2 text-lg rounded-b-sm max-h-44"
-                code={"$ cargo lambda build --release --arm64\n\n\n"}
-                lang="bash"
-                theme="aurora-x"
-              />
-            </Terminal>
-          </div>
-          <div class="w-5/12">
-            <div class="flex flex-col space-y-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="w-12 h-12 text-accent"
-                ><path
-                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
-                ></path></svg
-              >
-              <h2 class="text-lg font-bold">The tools of the trade</h2>
-              <p>
-                Discover the best tools and practices to <strong>build</strong>, <strong
-                  >test</strong
-                >, and <strong>deploy</strong>
-                <strong>production-grade</strong> Lambda functions using Rust.
-              </p>
-            </div>
-          </div>
+          <h2
+            class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
+          >
+            What people are saying
+          </h2>
         </div>
-      </section>
-
-      <section class="my-12 px-4 md:px-6 text-foreground">
-        <h2>What's in the book</h2>
-        <p>TODO: work in progress. Things might change</p>
-        <p>
-          TODO: list of chapters (mark completed and in progress and expected
-          delivery time)
-        </p>
-        <p>TODO: progress bar</p>
-        <ol class="list-disc pl-8 flex flex-col gap-2">
-          <li>
-            <h3>Chapter 1: Rust &amp; Lambda, a love story.</h3>
-            <h4>
-              Why this combo makes a ton of sense compared to other
-              alternatives.
-            </h4>
-          </li>
-          <li>
-            <h3>Chapter 2: an oxidised serverless "Hello, World".</h3>
-            <h4>Writing our first Rust-powered Lambda Function.</h4>
-          </li>
-          <li>
-            <h3>Chapter 3: Infrastructure as code with SAM.</h3>
-            <h4>
-              How to deploy and manage Rust Lambda functions with the Serverless
-              Application Model.
-            </h4>
-          </li>
-          <li>
-            <h3>Chapter 4: Integrating with external systems.</h3>
-            <h4>
-              How to make arbitrary HTTP requests or to other AWS services from
-              your Lambda functions.
-            </h4>
-          </li>
-          <li>
-            <h3>Chapter 5: Handling different kinds of events.</h3>
-            <h4>
-              How to handle AWS Specific events, custom events and arbitrary
-              JSON in a strongly-typed way.
-            </h4>
-          </li>
-          <li>
-            <h3>Chapter 6: Handling different kinds of events.</h3>
-            <h4>
-              How to handle AWS Specific events, custom events and arbitrary
-              JSON in a strongly-typed way.
-            </h4>
-          </li>
-          <li>
-            <h3>Chapter 7: Different ways of writing Lambda handlers</h3>
-            <h4>
-              From simple async functions, to custom structs, to implementing
-              the Tokio Tower service trait.
-            </h4>
-          </li>
-          <li>
-            <h3>Chapter 8: Making the code testable</h3>
-            <h4>
-              How to structure the code to be able to write good tests for your
-              Lambda
-            </h4>
-          </li>
-          <li>
-            <h3>Chapter 9: Configuration management and handling secrets</h3>
-            <h4>
-              Best practices to inject configuration and secrets into your Rust
-              Lambda functions.
-            </h4>
-          </li>
-          <li>
-            <h3>Chapter 10: Code organisation</h3>
-            <h4>
-              Best practices on how to organise the code for projects with
-              multiple Lambda functions.
-            </h4>
-          </li>
-          <li>
-            <h3>Chapter 11: Observing all the things</h3>
-            <h4>
-              How to make our Rust Lambda functions observable using CloudWatch
-              or OpenTelemetry.
-            </h4>
-          </li>
-          <li>
-            <h3>Chapter 12: Reaching the speed of light</h3>
-            <h4>
-              How to benchmark and fine tune your Rust Lambda Functions for
-              maximum performance.
-            </h4>
-          </li>
-          <li>
-            <h3>Chapter 13: Middlewares</h3>
-            <h4>
-              How to embrace the middleware pattern to handle cross-cutting
-              concerns in an elegant and reusable way.
-            </h4>
-          </li>
-          <li>
-            <h3>Chapter 14: Hosting existing HTTP services</h3>
-            <h4>
-              How to wrap existing HTTP services in a Lambda function to make
-              them easily available as serverless functions.
-            </h4>
-          </li>
-          <li>
-            <h3>Chapter 15: Lambda extensions</h3>
-            <h4>Writing Lambda extensions using Rust.</h4>
-          </li>
-          <li>
-            <h3>Chapter 16: Integrating with GitHub Actions</h3>
-            <h4>
-              How to configure the integration between AWS and GitHub Actions to
-              test, build and deploy your Lambda Functions in an automated
-              fashion.
-            </h4>
-          </li>
-          <li>
-            <h3>Appendixes</h3>
-            <h4>How to use CDK or Terraform as an alternative to SAM.</h4>
-          </li>
-        </ol>
-      </section>
-
-      <section class="my-12 px-4 md:px-6 text-foreground">
-        <h2>Meet the author</h2>
-        <p>TODO</p>
       </section>
 
       <section class="my-12 px-4 md:px-6 text-foreground">
@@ -502,12 +136,27 @@ const rustCodeExample = `async fn function_handler(
       </section>
 
       <section class="my-12 px-4 md:px-6 text-foreground">
-        <h2>Free chapter</h2>
-        <p>TODO</p>
+        <div
+          class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
+        >
+          <h2
+            class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
+          >
+            Get a FREE chapter!
+          </h2>
+        </div>
       </section>
 
       <section class="my-12 px-4 md:px-6 text-foreground">
-        <h2>FAQS</h2>
+        <div
+          class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
+        >
+          <h2
+            class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
+          >
+            FAQs
+          </h2>
+        </div>
         <p>TODO</p>
         <div class="space-y-4">
           <div class="border-t border-gray-200 dark:border-gray-800">

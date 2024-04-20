@@ -1,0 +1,30 @@
+---
+import Avatar from "../ui/Avatar.astro";
+import guy from "../../images/devs/guy.png";
+---
+
+<section class="my-20 px-4 md:px-6 text-foreground">
+  <div
+    class="flex flex-col space-y-2 lg:col-start-3 lg:col-span-8 lg:space-y-4 max-w-[680px] m-auto"
+  >
+    <blockquote
+      class="text-lg leading-loose font-serif italic text-foreground border-l-2 border-border pl-3 sm:text-xl md:pl-4 md:text-2xl"
+    >
+      "As someone with a strong JavaScript background and very little Rust, I
+      did not expect this book to make me so productive at writing Lambda
+      functions using Rust. It definitely accelerated my path to production and
+      the gains are insane!"
+    </blockquote>
+    <div class="flex items-center justify-center space-x-2 lg:justify-start">
+      <Avatar
+        class="w-12 h-12"
+        image={guy}
+        fallback="GA"
+        alt="Guy Ackchyually, Junior Cloud Developer"
+      />
+      <div class="text-sm font-medium text-gray-500 dark:text-gray-400">
+        — Guy Ackchyually, Cloud Developer
+      </div>
+    </div>
+  </div>
+</section>

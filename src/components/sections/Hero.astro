@@ -1,0 +1,61 @@
+---
+import Image from "astro/components/Image.astro";
+import cover from "../../images/book-cover.jpg";
+import Readers from "../Readers.astro";
+import BuyButton from "../BuyButton.astro";
+---
+
+<section class="py-12 lg:py-24">
+  <div
+    class="container flex flex-col items-center gap-10 px-4 md:px-6 lg:gap-16 lg:flex-row"
+  >
+    <Image
+      src={cover}
+      width="400"
+      height="600"
+      alt="Crafting Lambda Functions in Rust: Book Cover"
+      quality={90}
+      decoding="sync"
+      loading="eager"
+      class="aspect-[4/6] overflow-hidden rounded-r-md object-cover object-center shadow-lg shadow-black/50"
+    />
+    <div class="space-y-6 text-center lg:text-left">
+      <div class="space-y-2">
+        <h1
+          class="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
+        >
+          Crafting Lambda Functions in Rust
+        </h1>
+      </div>
+      <p
+        class="max-w-[700px] text-foreground/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
+      >
+        A practical guide on how to build <strong>efficient</strong>, <strong
+          >sustainable</strong
+        >, <strong>cost-effective</strong> serverless AWS solutions with the Rust
+        programming language.
+      </p>
+
+      <div class="flex flex-col gap-2 md:max-w-80">
+        <BuyButton />
+        <p class="text-sm text-left text-muted-foreground font-semibold">
+          <a
+            href="#early-access"
+            class="border-b border-border-foreground border-dotted pb-1"
+            >Get the <span class="uppercase font-bold"
+              >Early-Access<sup class="sup text-[.5rem] -top-2 relative">TM</sup
+              ></span
+            > e-book package for just <strike
+              class="font-normal line-through decoration-destructive/50 decoration-2"
+              >39.90</strike
+            > 14.90 $!</a
+          >
+        </p>
+      </div>
+
+      <div>
+        <Readers total={100} />
+      </div>
+    </div>
+  </div>
+</section>

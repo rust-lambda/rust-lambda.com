@@ -20,9 +20,6 @@ importers:
       astro:
         specifier: ^4.5.16
         version: 4.5.16(typescript@5.4.4)
-      class-variance-authority:
-        specifier: ^0.7.0
-        version: 0.7.0
       clsx:
         specifier: ^2.1.0
         version: 2.1.0
@@ -38,6 +35,10 @@ importers:
       typescript:
         specifier: ^5.4.4
         version: 5.4.4
+    devDependencies:
+      class-variance-authority:
+        specifier: ^0.7.0
+        version: 0.7.0
 
 packages:
 
