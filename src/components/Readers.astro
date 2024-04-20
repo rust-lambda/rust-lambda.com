@@ -8,10 +8,10 @@ type Props = {
 
 // TODO: make list of real readers
 const readers = [
-  { name: "Alice", image: "uifaces-human-image-2.jpg" },
-  { name: "Bob", image: "uifaces-human-image-3.jpg" },
-  { name: "Charlie", image: "uifaces-human-image-4.jpg" },
-  { name: "David", image: "uifaces-human-image-5.jpg" },
+  { name: "Domagoj", image: "domagoj.jpg" },
+  { name: "Roberto", image: "roberto.jpg" },
+  { name: "Eugen", image: "eugen.jpg" },
+  { name: "Padraig", image: "padraig.jpg" },
   { name: "Eve", image: "uifaces-human-image-6.jpg" },
   { name: "Frank", image: "uifaces-human-image-7.jpg" },
   { name: "Grace", image: "uifaces-human-image-8.jpg" },
@@ -42,8 +42,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         image={images[`/src/images/devs/${r.image}`]()}
         alt={`${r.name}'s portrait`}
         fallback={r.name.substring(0, 2).toLocaleUpperCase()}
-        class="w-8 h-8"
-        width={32}
+        class="w-10 h-10"
+        width={40}
         loading="eager"
         decoding="sync"
       />
@@ -52,8 +52,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   <Avatar
     alt="More readers"
     fallback={`+${total - readers.length}`}
-    class="w-8 h-8"
-    width={32}
+    class="w-10 h-10"
+    width={40}
   />
 </div>
 <p class="mt-2 text-sm text-foreground/80">
