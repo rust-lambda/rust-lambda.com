@@ -4,6 +4,7 @@ import Hero from "../components/sections/Hero.astro";
 import LeadQuote from "../components/sections/LeadQuote.astro";
 import Features from "../components/sections/Features.astro";
 import Chapters from "../components/sections/Chapters.astro";
+import WhoIsItFor from "../components/sections/WhoIsItFor.astro";
 ---
 
 <Layout title="Crafting Lambda Functions in Rust - E-book">
@@ -54,18 +55,7 @@ import Chapters from "../components/sections/Chapters.astro";
       <LeadQuote />
       <Features />
       <Chapters />
-
-      <section class="my-12 px-4 md:px-6 text-foreground">
-        <div
-          class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
-        >
-          <h2
-            class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
-          >
-            Who is this book for
-          </h2>
-        </div>
-      </section>
+      <WhoIsItFor />
 
       <section class="my-12 px-4 md:px-6 text-foreground">
         <div

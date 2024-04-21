@@ -1,0 +1,77 @@
+---
+import Image from "astro/components/Image.astro";
+import devpic from "../../images/splash/peter-gombos-8y3e2M6APy4-unsplash.jpg";
+import CheckIcon from "../icons/CheckIcon.astro";
+---
+
+<section class="my-12 px-4 md:px-6 text-foreground">
+  <div
+    class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
+  >
+    <h2
+      class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
+    >
+      Who is this book for
+    </h2>
+
+    <div
+      class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm mr-16"
+    >
+      <div class="w-7/12 absolute -right-8 top-4 shadow-md">
+        <Image
+          src={devpic}
+          width="600"
+          height="400"
+          alt="Crafting Lambda Functions in Rust: Book Cover"
+          quality={90}
+          decoding="sync"
+          loading="eager"
+          class="aspect-[6/4] overflow-hidden rounded-md object-cover object-center shadow-lg"
+        />
+      </div>
+      <div class="w-5/12">
+        <div class="flex flex-col gap-4">
+          <p class="text-lg/8">
+            This book is designed for cloud developers who are passionate about
+            Serverless and want to build efficient and cost-effective serverless
+            solutions using Rust and AWS Lambda. It assumes you have some basic
+            understanding of the Rust programming language. If that's something
+            totally new for you, we'd recommend you to check out the <a
+              href="https://doc.rust-lang.org/book/"
+              target="_blank"
+              rel="nofollow noopener"
+              class="underline">official Rust book</a
+            > (available for FREE) first.
+          </p>
+          <h3 class="font-bold text-xl mt-8">
+            This book is for you if you meet these criteria:
+          </h3>
+          <ul class="font-semibold max-w-md space-y-1 list-inside">
+            <li class="flex gap-2 items-baseline">
+              <CheckIcon class="text-accent w-4 h-4 flex-shrink-0" /><span
+                >Cloud developers with a passion for Serverless</span
+              >
+            </li>
+            <li class="flex gap-2 items-baseline">
+              <CheckIcon class="text-accent w-4 h-4 flex-shrink-0" /><span
+                >Very basic understanding of the Rust programming language</span
+              >
+            </li>
+            <li class="flex gap-2 items-baseline">
+              <CheckIcon class="text-accent w-4 h-4 flex-shrink-0" /><span
+                >Very basic knowledge of AWS and Lambda</span
+              >
+            </li>
+            <li class="flex gap-2 items-baseline">
+              <CheckIcon class="text-accent w-4 h-4 flex-shrink-0" />
+              <span
+                >Eager to build efficient and cost-effective serverless
+                solutions</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
