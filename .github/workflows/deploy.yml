@@ -79,7 +79,6 @@ jobs:
         if: ${{ github.ref_name == 'main' }}
         run: |
           curl -X DELETE "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE }}/purge_cache" \
-            -H "X-Auth-Email: ${{ secrets.CLOUDFLARE_EMAIL }}" \
-            -H "X-Auth-Key: ${{ secrets.CLOUDFLARE_AUTH_KEY }}" \
+            -H "Authorization: Bearer: ${{ secrets.CLOUDFLARE_AUTH_KEY }}" \
             -H "Content-Type: application/json" \
             --data '{"purge_everything":true}'
