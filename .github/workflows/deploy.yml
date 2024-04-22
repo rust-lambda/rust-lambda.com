@@ -28,7 +28,8 @@ jobs:
           version: 8
       
       - run: ls -al .
-
+      - run: ls -al /home/runner/work/rust-lambda.com/rust-lambda.com
+      - run: ls -al /home/runner/work/rust-lambda.com/rust-lambda.com/pnpm-lock.yaml
 
       - name: Use Node 20.x
         uses: actions/setup-node@v4
