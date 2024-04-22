@@ -6,6 +6,11 @@ import LeadQuote from "../components/sections/LeadQuote.astro";
 import Features from "../components/sections/Features.astro";
 import Chapters from "../components/sections/Chapters.astro";
 import WhoIsItFor from "../components/sections/WhoIsItFor.astro";
+import Authors from "../components/sections/Authors.astro";
+import EarlyAccessBundle from "../components/sections/EarlyAccessBundle.astro";
+import Testimonials from "../components/sections/Testimonials.astro";
+import FreeChapter from "../components/sections/FreeChapter.astro";
+import Faq from "../components/sections/Faq.astro";
 ---
 
 <Layout title="Crafting Lambda Functions in Rust - E-book">
@@ -23,169 +28,11 @@ import WhoIsItFor from "../components/sections/WhoIsItFor.astro";
       <Features />
       <Chapters />
       <WhoIsItFor />
-
-      <section class="my-12 px-4 md:px-6 text-foreground">
-        <div
-          class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
-        >
-          <h2
-            class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
-          >
-            The early access bundle
-          </h2>
-        </div>
-      </section>
-
-      <section class="my-12 px-4 md:px-6 text-foreground">
-        <div
-          class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
-        >
-          <h2
-            class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
-          >
-            Meet the authors
-          </h2>
-        </div>
-      </section>
-
-      <section class="my-12 px-4 md:px-6 text-foreground">
-        <div
-          class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
-        >
-          <h2
-            class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
-          >
-            What people are saying
-          </h2>
-        </div>
-      </section>
-
-      <section class="my-12 px-4 md:px-6 text-foreground">
-        <h2>Opinions from the readers</h2>
-        <p>TODO</p>
-
-        <div class="grid items-start gap-6 md:gap-12 lg:grid-cols-2 lg:gap-10">
-          <div class="flex flex-col gap-2">
-            <p class="text-gray-500 dark:text-gray-400">
-              “This book is a game-changer for anyone interested in combining
-              the power of Rust with the flexibility of serverless computing.
-              The author does an excellent job of breaking down complex concepts
-              into easy-to-understand examples. Highly recommended!”
-            </p>
-            <div class="flex items-center space-x-2">
-              <div class="font-medium">Alice Johnson</div>
-              <div class="text-sm text-gray-500">- @ajohnson</div>
-            </div>
-          </div>
-          <div class="flex flex-col gap-2">
-            <p class="text-gray-500 dark:text-gray-400">
-              “As a longtime fan of Rust, I was excited to dive into this book,
-              and it did not disappoint. The hands-on examples really helped me
-              understand how to write efficient and elegant Lambda functions.
-              Kudos to the author for creating such a valuable resource!”
-            </p>
-            <div class="flex items-center space-x-2">
-              <div class="font-medium">Bob Lee</div>
-              <div class="text-sm text-gray-500">- @bob_lee</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="my-12 px-4 md:px-6 text-foreground">
-        <div
-          class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
-        >
-          <h2
-            class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
-          >
-            Get a FREE chapter!
-          </h2>
-        </div>
-      </section>
-
-      <section class="my-12 px-4 md:px-6 text-foreground">
-        <div
-          class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
-        >
-          <h2
-            class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
-          >
-            FAQs
-          </h2>
-        </div>
-        <p>TODO</p>
-        <div class="space-y-4">
-          <div class="border-t border-gray-200 dark:border-gray-800">
-            <div class="flex items-center justify-between py-4">
-              <button
-                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 text-left w-full"
-              >
-                Is this book suitable for beginners?
-              </button>
-              <button
-                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 ml-2"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="w-4 h-4"
-                >
-                  <path d="m6 9 6 6 6-6"></path>
-                </svg>
-              </button>
-            </div>
-            <div
-              class="grid gap-2 px-4 pb-4 text-sm text-gray-500 border-t dark:text-gray-400"
-            >
-              Yes, the book is designed to be accessible to readers with basic
-              knowledge of Rust. The early chapters provide a gentle
-              introduction to Lambda functions and serverless computing.
-            </div>
-          </div>
-          <div class="border-t border-gray-200 dark:border-gray-800">
-            <div class="flex items-center justify-between py-4">
-              <button
-                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 text-left w-full"
-              >
-                Are the code examples available for download?
-              </button>
-              <button
-                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 ml-2"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="w-4 h-4"
-                >
-                  <path d="m6 9 6 6 6-6"></path>
-                </svg>
-              </button>
-            </div>
-            <div
-              class="grid gap-2 px-4 pb-4 text-sm text-gray-500 border-t dark:text-gray-400"
-            >
-              Yes, the book is designed to be accessible to readers with basic
-              knowledge of Rust. The early chapters provide a gentle
-              introduction to Lambda functions and serverless computing.
-            </div>
-          </div>
-        </div>
-      </section>
+      <EarlyAccessBundle />
+      <Authors />
+      <Testimonials />
+      <FreeChapter />
+      <Faq />
     </main>
 
     <footer class="border-t">
