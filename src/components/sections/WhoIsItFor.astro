@@ -1,7 +1,8 @@
 ---
 import Image from "astro/components/Image.astro";
-import devpic from "../../images/splash/peter-gombos-8y3e2M6APy4-unsplash.jpg";
+import breakfast from "../../images/splash/rust-lambda-breakfast.jpg";
 import CheckIcon from "../icons/CheckIcon.astro";
+import CurlyArrow from "../decorations/CurlyArrow.astro";
 ---
 
 <section class="my-12 px-4 md:px-6 text-foreground">
@@ -17,56 +18,87 @@ import CheckIcon from "../icons/CheckIcon.astro";
     <div
       class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm mr-16"
     >
-      <div class="w-7/12 absolute -right-8 top-4 shadow-md">
-        <Image
-          src={devpic}
-          width="600"
-          height="400"
-          alt="Crafting Lambda Functions in Rust: Book Cover"
-          quality={90}
-          decoding="sync"
-          loading="eager"
-          class="aspect-[6/4] overflow-hidden rounded-md object-cover object-center shadow-lg"
-        />
+      <div class="flex flex-col lg:flex-row gap-4">
+        <div class="lg:w-5/12">
+          <div class="flex flex-col gap-4 text-lg/8 max-w-lg">
+            <p>
+              This book is designed for cloud developers who are passionate
+              about Serverless and want to build green, efficient, and
+              cost-effective serverless solutions using Rust and AWS Lambda.
+            </p>
+            <p>
+              This book assumes you have some basic understanding of the Rust
+              programming language. If that's something totally new for you,
+              we'd recommend you to check out the <a
+                href="https://doc.rust-lang.org/book/"
+                target="_blank"
+                rel="nofollow noopener"
+                class="underline">official Rust book</a
+              > (available for FREE) first.
+            </p>
+            <p>
+              You will also need some basic understanding of AWS and serverless.
+              If you are new to AWS, we recommend you to try some of the FREE <a
+                href="https://workshops.aws/categories/Lambda"
+                target="_blank"
+                rel="nofollow noopener"
+                class="underline">Lambda workshops by AWS</a
+              >.
+            </p>
+          </div>
+        </div>
+        <div class="lg:w-7/12 lg:translate-x-16 relative">
+          <Image
+            src={breakfast}
+            width="600"
+            height="400"
+            alt="A breakfast table with coffee mugs, some milk, cherries, biscuits and a red coffee mocha maker."
+            quality={90}
+            decoding="sync"
+            loading="eager"
+            class="aspect-[6/4] overflow-hidden rounded-md object-cover object-center shadow-lg z-0"
+          />
+          <div class="z-10 absolute">
+            <CurlyArrow
+              class="-translate-y-24 translate-x-48 h-32 text-primary"
+            />
+            <p class="-translate-y-28 translate-x-60 italic text-primary/75">
+              Ready to drink the cool aid? :)
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="w-5/12">
-        <div class="flex flex-col gap-4">
-          <p class="text-lg/8">
-            This book is designed for cloud developers who are passionate about
-            Serverless and want to build efficient and cost-effective serverless
-            solutions using Rust and AWS Lambda. It assumes you have some basic
-            understanding of the Rust programming language. If that's something
-            totally new for you, we'd recommend you to check out the <a
-              href="https://doc.rust-lang.org/book/"
-              target="_blank"
-              rel="nofollow noopener"
-              class="underline">official Rust book</a
-            > (available for FREE) first.
-          </p>
-          <h3 class="font-bold text-xl mt-8">
-            This book is for you if you meet these criteria:
+      <div class="flex flex-col justify-center align-middle items-center mt-8">
+        <div>
+          <h3 class="font-bold text-2xl mt-8 my-4 ml-6">
+            This book is for you if:
           </h3>
-          <ul class="font-semibold max-w-md space-y-1 list-inside">
+          <ul class="max-w-xl space-y-1 text-xl">
             <li class="flex gap-2 items-baseline">
-              <CheckIcon class="text-accent w-4 h-4 flex-shrink-0" /><span
-                >Cloud developers with a passion for Serverless</span
+              <CheckIcon
+                class="text-accent h-5 flex-shrink-0 translate-y-1"
+              /><span
+                >You are a cloud developers with a passion for Serverless</span
               >
             </li>
             <li class="flex gap-2 items-baseline">
-              <CheckIcon class="text-accent w-4 h-4 flex-shrink-0" /><span
-                >Very basic understanding of the Rust programming language</span
+              <CheckIcon
+                class="text-accent h-5 flex-shrink-0 translate-y-1"
+              /><span
+                >You have very basic understanding of the Rust programming
+                language</span
               >
             </li>
             <li class="flex gap-2 items-baseline">
-              <CheckIcon class="text-accent w-4 h-4 flex-shrink-0" /><span
-                >Very basic knowledge of AWS and Lambda</span
-              >
+              <CheckIcon
+                class="text-accent h-5 flex-shrink-0 translate-y-1"
+              /><span>You have basic knowledge of AWS and Lambda</span>
             </li>
             <li class="flex gap-2 items-baseline">
-              <CheckIcon class="text-accent w-4 h-4 flex-shrink-0" />
+              <CheckIcon class="text-accent h-5 flex-shrink-0 translate-y-1" />
               <span
-                >Eager to build efficient and cost-effective serverless
-                solutions</span
+                >You are eager to build greener, efficient, and cost-effective
+                serverless solutions</span
               >
             </li>
           </ul>
