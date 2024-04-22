@@ -1,5 +1,5 @@
 ---
-import style from "../style.css";
+import "../style.css";
 
 interface Props {
   title: string;
@@ -80,7 +80,6 @@ const { title } = Astro.props;
     <meta name="theme-color" content="#ffffff" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <link rel="stylesheet" href={style} />
   </head>
   <body
     class="bg-[linear-gradient(to_right,hsl(var(--muted))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--muted))_1px,transparent_1px)] bg-[size:14px_24px]"
