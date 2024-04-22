@@ -1,0 +1,39 @@
+---
+import ThemeSwitcher from "../ThemeSwitcher.astro";
+---
+
+<header class="py-4 md:py-6 z-20">
+  <div class="container flex items-center justify-end px-4 md:px-6">
+    <a class="sr-only flex items-center space-x-2 text-2xl font-bold" href="/">
+      Crafting Lambda Functions in Rust
+    </a>
+    <nav class="hidden space-x-4 text-base font-medium md:flex">
+      <a
+        class="text-gray-900/60 hover:underline dark:text-gray-50/60 dark:hover:underline"
+        href="#features"
+      >
+        Features
+      </a>
+      <a
+        class="text-gray-900/60 hover:underline dark:text-gray-50/60 dark:hover:underline"
+        href="#author"
+      >
+        Author
+      </a>
+      <a
+        class="text-gray-900/60 hover:underline dark:text-gray-50/60 dark:hover:underline"
+        href="#testimonials"
+      >
+        Testimonials
+      </a>
+      <a
+        class="text-gray-900/60 hover:underline dark:text-gray-50/60 dark:hover:underline"
+        href="#faq"
+      >
+        FAQ
+      </a>
+
+      <ThemeSwitcher />
+    </nav>
+  </div>
+</header>

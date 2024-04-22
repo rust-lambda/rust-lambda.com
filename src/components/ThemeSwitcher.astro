@@ -1,0 +1,105 @@
+---
+import MoonIcon from "./icons/MoonIcon.astro";
+import SunIcon from "./icons/SunIcon.astro";
+import TabletIcon from "./icons/TabletIcon.astro";
+---
+
+<div class="relative" id="theme-switcher">
+  <a href="#" id="theme-switcher-nav-trigger">
+    <span class="sr-only">Toggle theme</span>
+    <MoonIcon class="hidden dark:block" />
+    <SunIcon class="block dark:hidden" />
+    <nav
+      class="hidden absolute right-0 top-8 border border-border p-2 rounded-sm shadow-md bg-background/50 [animation:200ms_ease-in-out_rotateMenu] [transform-origin:top_center]"
+    >
+      <ul class="flex flex-col gap-1">
+        <li>
+          <a
+            id="theme-switcher-light"
+            href="#"
+            class="flex gap-2 px-2 py-1 hover:bg-primary hover:text-primary-foreground rounded-md"
+            ><SunIcon /> Light</a
+          >
+        </li>
+        <li>
+          <a
+            id="theme-switcher-dark"
+            href="#"
+            class="flex gap-2 px-2 py-1 hover:bg-primary hover:text-primary-foreground rounded-md"
+            ><MoonIcon /> Dark</a
+          >
+        </li>
+        <li>
+          <a
+            id="theme-switcher-system"
+            href="#"
+            class="flex gap-2 px-2 py-1 hover:bg-primary hover:text-primary-foreground rounded-md"
+            ><TabletIcon /> System</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </a>
+</div>
+<style>
+  @keyframes rotateMenu {
+    0% {
+      transform: rotateX(-90deg);
+    }
+    70% {
+      transform: rotateX(20deg);
+    }
+    100% {
+      transform: rotateX(0deg);
+    }
+  }
+</style>
+<script>
+  type Theme = "light" | "dark" | "system";
+  let theme: Theme = document.documentElement.classList.contains("dark")
+    ? "dark"
+    : "light";
+
+  function refreshTheme() {
+    const isDark =
+      theme === "dark" ||
+      ((theme as Theme) === "system" &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches);
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+  }
+
+  const themeSwitcher = document.getElementById("theme-switcher");
+  const themeSwitcherMenuTrigger = document.getElementById(
+    "theme-switcher-nav-trigger"
+  );
+  const themeSwitcherNav = themeSwitcher?.querySelector("nav");
+  const themeSwitcherLight = document.getElementById("theme-switcher-light");
+  const themeSwitcherDark = document.getElementById("theme-switcher-dark");
+  const themeSwitcherSystem = document.getElementById("theme-switcher-system");
+
+  themeSwitcherMenuTrigger?.addEventListener("click", (e) => {
+    e.preventDefault();
+    themeSwitcherNav?.classList.toggle("hidden");
+  });
+
+  themeSwitcherLight?.addEventListener("click", (e) => {
+    e.preventDefault();
+    theme = "light";
+    refreshTheme();
+    themeSwitcherNav?.classList.add("hidden");
+  });
+
+  themeSwitcherDark?.addEventListener("click", (e) => {
+    e.preventDefault();
+    theme = "dark";
+    refreshTheme();
+    themeSwitcherNav?.classList.add("hidden");
+  });
+
+  themeSwitcherSystem?.addEventListener("click", (e) => {
+    e.preventDefault();
+    theme = "system";
+    refreshTheme();
+    themeSwitcherNav?.classList.add("hidden");
+  });
+</script>

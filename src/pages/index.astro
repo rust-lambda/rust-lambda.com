@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/sections/Navigation.astro";
 import Hero from "../components/sections/Hero.astro";
 import LeadQuote from "../components/sections/LeadQuote.astro";
 import Features from "../components/sections/Features.astro";
@@ -13,42 +14,8 @@ import WhoIsItFor from "../components/sections/WhoIsItFor.astro";
       class="absolute -left-[15%] top-0 -z-10 m-auto h-[610px] w-[610px] rounded-full bg-[#FD8001] opacity-50 blur-[100px]"
     >
     </div>
-    <header class="py-4 md:py-6 z-20">
-      <div class="container flex items-center justify-end px-4 md:px-6">
-        <a
-          class="sr-only flex items-center space-x-2 text-2xl font-bold"
-          href="/"
-        >
-          Crafting Lambda Functions in Rust
-        </a>
-        <nav class="hidden space-x-4 text-base font-medium md:flex">
-          <a
-            class="text-gray-900/60 hover:underline dark:text-gray-50/60 dark:hover:underline"
-            href="#features"
-          >
-            Features
-          </a>
-          <a
-            class="text-gray-900/60 hover:underline dark:text-gray-50/60 dark:hover:underline"
-            href="#author"
-          >
-            Author
-          </a>
-          <a
-            class="text-gray-900/60 hover:underline dark:text-gray-50/60 dark:hover:underline"
-            href="#testimonials"
-          >
-            Testimonials
-          </a>
-          <a
-            class="text-gray-900/60 hover:underline dark:text-gray-50/60 dark:hover:underline"
-            href="#faq"
-          >
-            FAQ
-          </a>
-        </nav>
-      </div>
-    </header>
+
+    <Navigation />
 
     <main class="flex-1">
       <Hero />
