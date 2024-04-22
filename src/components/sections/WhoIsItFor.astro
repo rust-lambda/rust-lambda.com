@@ -17,7 +17,7 @@ import BuyButton from "../BuyButton.astro";
     </h2>
 
     <div
-      class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm mr-16"
+      class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm lg:mr-16"
     >
       <div class="flex flex-col lg:flex-row gap-4">
         <div class="lg:w-5/12">
@@ -59,7 +59,7 @@ import BuyButton from "../BuyButton.astro";
             loading="eager"
             class="aspect-[6/4] overflow-hidden rounded-md object-cover object-center shadow-lg z-0"
           />
-          <div class="z-10 absolute">
+          <div class="hidden md:block z-10 absolute">
             <CurlyArrow
               class="-translate-y-24 translate-x-48 h-32 text-primary"
             />
