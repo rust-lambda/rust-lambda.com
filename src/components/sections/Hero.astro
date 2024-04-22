@@ -1,6 +1,7 @@
 ---
 import Image from "astro/components/Image.astro";
-import cover from "../../images/book-cover.jpg";
+import coverLight from "../../images/cover-light.png";
+import coverDark from "../../images/cover-dark.png";
 import Readers from "../Readers.astro";
 import BuyButton from "../BuyButton.astro";
 ---
@@ -10,14 +11,24 @@ import BuyButton from "../BuyButton.astro";
     class="container flex flex-col items-center gap-10 px-4 md:px-6 lg:gap-16 lg:flex-row"
   >
     <Image
-      src={cover}
+      src={coverLight}
       width="400"
-      height="600"
-      alt="Crafting Lambda Functions in Rust: Book Cover"
+      height="566"
+      alt="Crafting Lambda Functions in Rust: Book Cover (light version)"
       quality={90}
       decoding="sync"
       loading="eager"
-      class="aspect-[4/6] overflow-hidden rounded-r-md object-cover object-center shadow-lg shadow-black/50"
+      class="dark:hidden aspect-[400/566] overflow-hidden rounded-r-md object-cover object-center shadow-lg shadow-black/50"
+    />
+    <Image
+      src={coverDark}
+      width="400"
+      height="566"
+      alt="Crafting Lambda Functions in Rust: Book Cover (dark version)"
+      quality={90}
+      decoding="sync"
+      loading="eager"
+      class="hidden dark:block aspect-[400/566] overflow-hidden rounded-r-md object-cover object-center shadow-lg shadow-black/50"
     />
     <div class="space-y-6 text-center lg:text-left">
       <div class="space-y-2">
