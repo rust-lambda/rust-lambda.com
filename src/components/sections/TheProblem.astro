@@ -1,0 +1,83 @@
+---
+import RocketIcon from "../icons/RocketIcon.astro";
+import FlowerIcon from "../icons/FlowerIcon.astro";
+import PiggyBankIcon from "../icons/PiggyBankIcon.astro";
+---
+
+<section id="the-problem" class="container">
+  <div
+    class="flex bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm text-lg"
+  >
+    <div class="max-w-[50em]">
+      <h2
+        class="text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight mb-4"
+      >
+        Hey, dear <span
+          class="bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
+          >serverless friend ...</span
+        >
+      </h2>
+      <div class="flex flex-col gap-4">
+        <ul class="ml-8 list-outside list-disc leading-8">
+          <li>
+            Are you building web APIs with AWS Lambda and you wish there was a
+            way to <strong class="font-semibold">reduce cold-starts</strong>?
+          </li>
+          <li>
+            Your app is generating millions of Lambda invocations per day and
+            the
+            <strong class="font-semibold">cost</strong> is starting to add up?
+          </li>
+          <li>
+            You know that Lambda is a <strong class="font-semibold"
+              >sustainable</strong
+            > platform, but are you wondering if we could do more?
+          </li>
+        </ul>
+        <p class="mt-8 text-xl font-semibold">
+          Well, you are in the right place!
+        </p>
+        <p>
+          We have been building Lambda functions using the Rust programming
+          language for a while now and we have seen impressive results in terms
+          of efficiency, cost, and sustainability. Now, we are on a mission to
+          share what we learnt so far!
+        </p>
+        <p>
+          With this practical e-book you will learn everything there is to know
+          to be able to write, test and ship Lambda Functions written in Rust.
+        </p>
+        <p class="font-semibold text-xl mt-8">
+          Join us in this journey and let's make the cloud a better place, one
+          Lambda at a time!
+        </p>
+      </div>
+    </div>
+    <div class="p-4 opacity-50">
+      <div class="h-16 w-16 md:h-32 md:w-32 overflow-hidden alternate-content">
+        <RocketIcon
+          class="h-16 w-16 md:h-32 md:w-32 text-background dark:text-foreground"
+        />
+        <FlowerIcon
+          class="h-16 w-16 md:h-32 md:w-32 text-background dark:text-foreground"
+        />
+        <PiggyBankIcon
+          class="h-16 w-16 md:h-32 md:w-32 text-background dark:text-foreground"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  const items: NodeListOf<SVGAElement> = document.querySelectorAll(
+    ".alternate-content > *"
+  );
+  let index = 0;
+  setInterval(() => {
+    items.forEach((item) => {
+      item.style.display = "none";
+    });
+    items[index].style.display = "block";
+    index = (index + 1) % items.length;
+  }, 5000);
+</script>

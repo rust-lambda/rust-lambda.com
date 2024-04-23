@@ -196,9 +196,12 @@ const progress =
       <div class="flex flex-col gap-2">
         <p class="text-sm font-semibold">The content is subject to change.</p>
         <p class="text-sm">
-          If you get the EARLY-ACCESS package, you'll have access to new
-          chapters and updates and you will be able to contribute with your
-          precious feedback.
+          If you get <a
+            href="#early-access"
+            class="underline decoration-dotted underline-offset-2 hover:text-primary"
+            >the EARLY-ACCESS bundle</a
+          >, you'll have access to new chapters and updates and you will be able
+          to contribute with your precious feedback.
         </p>
         <p class="mt-6">
           <BuyButton />
@@ -217,7 +220,7 @@ const progress =
     <ol class="flex flex-col gap-12">
       {
         chapters.map((chapter) => (
-          <li class="max-w-[32rem]">
+          <li class="max-w-[38rem]">
             <Badge
               class="float-end mt-4"
               intent={statusVariant(chapter.status)}
