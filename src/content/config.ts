@@ -18,6 +18,24 @@ const authorsCollection = defineCollection({
   }),
 });
 
+const faqCollections = defineCollection({
+  type: 'content',
+  schema: z.object({
+    question: z.string(),
+  })
+})
+
+const reviewsCollection = defineCollection({
+  type: 'content',
+  schema: ({image}) => z.object({
+    name: z.string(),
+    jobTitle: z.string(),
+    picture: image(),
+  })
+})
+
 export const collections = {
   authors: authorsCollection,
+  faq: faqCollections,
+  reviews: reviewsCollection,
 };

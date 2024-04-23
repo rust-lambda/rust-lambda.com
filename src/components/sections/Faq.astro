@@ -1,5 +1,8 @@
 ---
+import { getCollection, type CollectionEntry } from "astro:content";
+import FaqEntry from "../FaqEntry.astro";
 
+const faqs: CollectionEntry<"faq">[] = await getCollection("faq");
 ---
 
 <section
@@ -15,75 +18,11 @@
       FAQs
     </h2>
   </div>
-  <p>TODO</p>
-  <div class="space-y-4">
-    <div class="border-t border-gray-200 dark:border-gray-800">
-      <div class="flex items-center justify-between py-4">
-        <button
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 text-left w-full"
-        >
-          Is this book suitable for beginners?
-        </button>
-        <button
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 ml-2"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="w-4 h-4"
-          >
-            <path d="m6 9 6 6 6-6"></path>
-          </svg>
-        </button>
-      </div>
-      <div
-        class="grid gap-2 px-4 pb-4 text-sm text-gray-500 border-t dark:text-gray-400"
-      >
-        Yes, the book is designed to be accessible to readers with basic
-        knowledge of Rust. The early chapters provide a gentle introduction to
-        Lambda functions and serverless computing.
-      </div>
-    </div>
-    <div class="border-t border-gray-200 dark:border-gray-800">
-      <div class="flex items-center justify-between py-4">
-        <button
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 text-left w-full"
-        >
-          Are the code examples available for download?
-        </button>
-        <button
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 ml-2"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="w-4 h-4"
-          >
-            <path d="m6 9 6 6 6-6"></path>
-          </svg>
-        </button>
-      </div>
-      <div
-        class="grid gap-2 px-4 pb-4 text-sm text-gray-500 border-t dark:text-gray-400"
-      >
-        Yes, the book is designed to be accessible to readers with basic
-        knowledge of Rust. The early chapters provide a gentle introduction to
-        Lambda functions and serverless computing.
-      </div>
+  <div
+    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm"
+  >
+    <div class="space-y-4">
+      {faqs.map((faq) => <FaqEntry faq={faq} />)}
     </div>
   </div>
 </section>

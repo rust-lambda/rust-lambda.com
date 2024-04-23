@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  faq: CollectionEntry<"faq">;
+};
+
+const faq = Astro.props.faq;
+const { Content } = await Astro.props.faq.render();
+---
+
+<details class="group py-1 text-lg border-b border-border">
+  <summary
+    class="flex cursor-pointer flex-row items-center justify-between py-1 font-semibold text-foreground marker:[font-size:0px]"
+  >
+    {faq.data.question}
+    <svg
+      class="h-6 w-6 rotate-0 transform text-foreground group-open:rotate-180"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="2"
+      stroke="currentColor"
+      aria-hidden="true"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"
+      ></path>
+    </svg>
+  </summary>
+  <div class="text-foreground pb-4">
+    <Content />
+  </div>
+</details>

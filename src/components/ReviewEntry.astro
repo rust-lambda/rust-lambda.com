@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  review: CollectionEntry<"reviews">;
+};
+
+const review = Astro.props.review;
+const { Content } = await Astro.props.review.render();
+---
+
+<div class="relative group">
+  <div
+    class="relative p-6 space-y-6 leading-none rounded-lg bg-card/50 text-card-foreground border border-border glow backdrop-blur-sm"
+  >
+    <div class="flex items-center space-x-4">
+      <Image
+        width={48}
+        height={48}
+        src={review.data.picture}
+        class="w-12 h-12 bg-center bg-cover border border-border rounded-full"
+        alt={`${review.data.name}'s profile picture'`}
+      />
+      <div>
+        <h3 class="text-lg font-semibold text-foreground">
+          {review.data.name}
+        </h3>
+        <p class="text-muted-foreground text-md">{review.data.jobTitle}</p>
+      </div>
+    </div>
+    <div class="leading-normal text-foreground text-md">
+      <Content />
+    </div>
+  </div>
+</div>

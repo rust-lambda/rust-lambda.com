@@ -1,5 +1,6 @@
 ---
-
+import { Image } from "astro:assets";
+import lambdino from "../../images/lambdino.png";
 ---
 
 <section class="my-12 px-4 md:px-6 text-foreground">
@@ -11,5 +12,66 @@
     >
       Get a FREE chapter!
     </h2>
+    <h3 class="text-center text-lg text-muted-foreground font-semibold">
+      Not convinced yet? Have a peek at one of our chapters... for FREE!
+    </h3>
+  </div>
+
+  <div class="relative p-1">
+    <div
+      class="bg-gradient-to-r from-primary/75 via-accent/75 to-accent/50 rounded-xl backdrop-blur-lg shadow-primary shadow-2xl p-1"
+    >
+      <div
+        class="bg-card/50 p-8 rounded-xl border border-border glow backdrop-blur-sm flex flex-col md:flex-row gap-8"
+      >
+        <div>
+          <p class="font-2xl font-semibold mb-4">
+            Give us your email and we will deliver a FREE chapter to your inbox.
+          </p>
+          <div class="max-w-[600px] relative">
+            <div
+              class="w-full h-full bg-muted/50 absolute rounded-md backdrop-blur-sm flex justify-center items-center text-3xl font-semibold text-accent/75"
+            >
+              COMING SOON
+            </div>
+            <form aria-disabled>
+              <div class="flex gap-0">
+                <label for="email" class="sr-only block">Email:</label>
+                <input
+                  disabled
+                  aria-disabled
+                  class="text-2xl h-14 py-1 px-4 border border-border rounded-l-md grow"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="your-email@right.here"
+                />
+                <button
+                  disabled
+                  aria-disabled
+                  type="submit"
+                  class="text-xl h-14 bg-primary/75 hover:bg-primary transition-colors text-primary-foreground py-2 px-4 border border-border rounded-r-md"
+                  >Send</button
+                >
+              </div>
+              <p class="mt-4 text-xs text-muted-foreground">
+                We promise we won't SPAM you! We might send you occasional
+                emails on the state of the book, but you'll be able to
+                unsubscribe at any time!
+              </p>
+            </form>
+          </div>
+        </div>
+        <div class="grow flex justify-end items-end">
+          <Image
+            src={lambdino}
+            height={400}
+            width={446}
+            alt="Lambdino, the cute crabby mascot of this book"
+            class="w-32 aspect-[446/400] object-cover object-center"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </section>

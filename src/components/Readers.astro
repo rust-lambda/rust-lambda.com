@@ -13,6 +13,7 @@ const readers = [
   { name: "Anton", image: "anton.jpg" },
   { name: "Monica", image: "monica.jpg" },
   { name: "AJ", image: "aj.jpg" },
+  { name: "Natalie", image: "natalie.jpg" },
   { name: "Domagoj", image: "domagoj.jpg" },
   { name: "Roberto", image: "roberto.jpg" },
   { name: "Eugen", image: "eugen.jpg" },
@@ -53,7 +54,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 </div>
 <p class="mt-2 text-sm text-foreground/80">
   Join {
-    readers.slice(0, 5).map((r) => (
+    readers.slice(0, 6).map((r) => (
       <>
         <span class="font-semibold">{r.name}</span>,
       </>

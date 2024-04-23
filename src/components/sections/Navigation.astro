@@ -1,4 +1,5 @@
 ---
+import NavLinks from "../NavLinks.astro";
 import ThemeSwitcher from "../ThemeSwitcher.astro";
 ---
 
@@ -8,37 +9,7 @@ import ThemeSwitcher from "../ThemeSwitcher.astro";
       Crafting Lambda Functions in Rust
     </a>
     <nav class="hidden space-x-4 text-base font-medium md:flex">
-      <a
-        class="text-gray-900/60 hover:underline dark:text-gray-50/60 dark:hover:underline"
-        href="#features"
-      >
-        Features
-      </a>
-      <a
-        class="text-gray-900/60 hover:underline dark:text-gray-50/60 dark:hover:underline"
-        href="#chapters"
-      >
-        Chapters
-      </a>
-      <a
-        class="text-gray-900/60 hover:underline dark:text-gray-50/60 dark:hover:underline"
-        href="#authors"
-      >
-        Authors
-      </a>
-      <a
-        class="text-gray-900/60 hover:underline dark:text-gray-50/60 dark:hover:underline"
-        href="#testimonials"
-      >
-        Testimonials
-      </a>
-      <a
-        class="text-gray-900/60 hover:underline dark:text-gray-50/60 dark:hover:underline"
-        href="#faq"
-      >
-        FAQ
-      </a>
-
+      <NavLinks />
       <ThemeSwitcher />
     </nav>
   </div>

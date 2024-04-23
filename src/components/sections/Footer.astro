@@ -1,0 +1,52 @@
+---
+import NavLinks from "../NavLinks.astro";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="container border-t border-border mt-16">
+  <div
+    class="flex flex-col md:flex-row justify-between items-center py-4 gap-4"
+  >
+    <div class="order-2 flex flex-col items gap-2">
+      <div class="text-sm text-muted-foreground">
+        <p>&copy; {year} Luciano Mammino - All rights reserved.</p>
+      </div>
+      <p class="text-xs max-w-96 text-muted-foreground">
+        Built with lots of <strong
+          >LOVE <span class="text-primary/75 hover:text-primary">♥︎</span
+          ></strong
+        >,{" "}<strong>Astro</strong>, <strong>TailwindCSS</strong>. Hosted on <strong
+          >GitHub pages</strong
+        >, accelerated by <strong>Cloudflare</strong>. Icons by <strong
+          >Feather Icons</strong
+        > and <strong>Lucide Icons</strong>.
+      </p>
+      <p class="text-xs max-w-96 text-muted-foreground">
+        Found a typo or an issue? This site is open source, feel free to <a
+          class="underline hover:text-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/rust-lambda/rust-lambda.com/issues/new"
+          >open an issue</a
+        > or <a
+          class="underline hover:text-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/rust-lambda/rust-lambda.com/pulls"
+          >submit a PR</a
+        >.
+      </p>
+    </div>
+    <div class="order-1 md:order-2 grow flex justify-end">
+      <nav class="flex flex-wrap gap-2 items-center">
+        <NavLinks />
+        <a
+          href="https://store.rust-lambda.com/"
+          class="inline-block px-4 py-2 bg-primary/50 text-primary-foreground hover:bg-primary transition-colors rounded-md"
+          >Gumroad Store</a
+        >
+      </nav>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,45 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import ReviewEntry from "../ReviewEntry.astro";
+
+const reviews: CollectionEntry<"reviews">[] = await getCollection("reviews");
+const reviewChunks: Array<CollectionEntry<"reviews">[]> = reviews.reduce(
+  (acc: Array<CollectionEntry<"reviews">[]>, curr, i) => {
+    acc[i % 3].push(curr);
+    return acc;
+  },
+  [[], [], []]
+);
+---
+
+<section
+  id="testimonials"
+  class="my-12 px-4 md:px-6 text-foreground scroll-m-8 scroll-smooth"
+>
+  <div
+    class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
+  >
+    <h2
+      class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
+    >
+      What people are saying
+    </h2>
+    <h3 class="text-center text-lg text-muted-foreground font-semibold">
+      Don't just listen to us. Listen to them.
+    </h3>
+  </div>
+
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+    {
+      reviewChunks.map((chunk) => (
+        <ul class="space-y-8">
+          {chunk.map((review) => (
+            <li class="text-sm leading-6">
+              <ReviewEntry review={review} />
+            </li>
+          ))}
+        </ul>
+      ))
+    }
+  </div>
+</section>
