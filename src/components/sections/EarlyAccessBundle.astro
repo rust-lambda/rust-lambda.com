@@ -1,5 +1,9 @@
 ---
-
+import { Image } from "astro:assets";
+import coverLight from "../../images/cover-light.png";
+import coverDark from "../../images/cover-dark.png";
+import BuyButton from "../BuyButton.astro";
+import CheckIcon from "../icons/CheckIcon.astro";
 ---
 
 <section
@@ -12,7 +16,103 @@
     <h2
       class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
     >
-      The early access bundle
+      The <span class="uppercase">early-access</span> bundle
     </h2>
+  </div>
+
+  <div class="my-12 px-4 text-foreground flex justify-center">
+    <div
+      class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm flex flex-row justify-center items-center gap-16"
+    >
+      <div class="flex flex-col gap-4">
+        <Image
+          src={coverLight}
+          width="200"
+          height="283"
+          alt="Crafting Lambda Functions in Rust: Book Cover (light version)"
+          quality={90}
+          decoding="sync"
+          loading="eager"
+          class="aspect-[200/283] overflow-hidden rounded-r-md object-cover object-center shadow-lg shadow-black/50"
+        />
+        <Image
+          src={coverDark}
+          width="200"
+          height="283"
+          alt="Crafting Lambda Functions in Rust: Book Cover (dark version)"
+          quality={90}
+          decoding="sync"
+          loading="eager"
+          class="aspect-[200/283] overflow-hidden rounded-r-md object-cover object-center shadow-lg shadow-black/50"
+        />
+      </div>
+      <div>
+        <div class="flex flex-col space-y-8 max-w-[32em]">
+          <h2 class="text-2xl">
+            This book is still a work in progress.<br /><strong
+              >So why should you care?</strong
+            >
+          </h2>
+          <p class="leading-8 text-lg">
+            If you get the <strong class="font-semibold"
+              ><span class="uppercase">early-acces</span>
+              bundle</strong
+            >, you won't just be supporting the authors but you will also:
+          </p>
+          <ul class="max-w-xl space-y-1 text-lg">
+            <li class="flex gap-2 items-baseline">
+              <CheckIcon
+                class="text-accent h-5 flex-shrink-0 translate-y-1"
+              /><span
+                >Get the book at the <strong class="font-semibold"
+                  >discounted price</strong
+                > of <strike
+                  class="font-normal line-through decoration-destructive/50 decoration-2"
+                  >39.90</strike
+                > 14.90 $!</span
+              >
+            </li>
+            <li class="flex gap-2 items-baseline">
+              <CheckIcon
+                class="text-accent h-5 flex-shrink-0 translate-y-1"
+              /><span
+                >Get frequent updates in <strong class="font-semibold"
+                  >ePub</strong
+                > and <strong>PDF</strong> in both <strong class="font-semibold"
+                  >light</strong
+                > and <strong class="font-semibold">dark mode</strong>!</span
+              >
+            </li>
+            <li class="flex gap-2 items-baseline">
+              <CheckIcon
+                class="text-accent h-5 flex-shrink-0 translate-y-1"
+              /><span
+                >Get access to our <strong class="font-semibold"
+                  >exclusive Discord server</strong
+                >.</span
+              >
+            </li>
+            <li class="flex gap-2 items-baseline">
+              <CheckIcon
+                class="text-accent h-5 flex-shrink-0 translate-y-1"
+              /><span
+                >Have a chance to review, provide early feedback and <strong
+                  >get your name in the credits</strong
+                >.</span
+              >
+            </li>
+            <li class="flex gap-2 items-baseline">
+              <CheckIcon class="text-accent h-5 flex-shrink-0 translate-y-1" />
+              <span
+                >Get the <strong class="font-semibold"
+                  >unconditioned love</strong
+                > of the authors! <span class="text-accent">♥︎</span></span
+              >
+            </li>
+          </ul>
+          <BuyButton />
+        </div>
+      </div>
+    </div>
   </div>
 </section>
