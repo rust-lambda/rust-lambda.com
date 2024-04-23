@@ -30,7 +30,9 @@ import BuyButton from "../BuyButton.astro";
       loading="eager"
       class="hidden dark:block aspect-[400/566] overflow-hidden rounded-r-md object-cover object-center shadow-lg shadow-black/50"
     />
-    <div class="space-y-6 text-center lg:text-left">
+    <div
+      class="flex flex-col space-y-6 text-center justify-center items-center lg:justify-start lg:items-start lg:text-left"
+    >
       <div class="space-y-2">
         <h1
           class="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
@@ -47,13 +49,13 @@ import BuyButton from "../BuyButton.astro";
         programming language.
       </p>
 
-      <div class="flex flex-col gap-2 md:max-w-80">
+      <div class="flex flex-col gap-2 lg:max-w-80">
         <BuyButton />
         <p class="text-sm text-left text-muted-foreground font-semibold">
           <a
             href="#early-access"
             class="border-b border-border-foreground border-dotted pb-1"
-            >Get the <span class="uppercase font-bold"
+            ><span class="uppercase font-bold"
               >Early-Access<sup class="sup text-[.5rem] -top-2 relative">TM</sup
               ></span
             > e-book package for just <strike

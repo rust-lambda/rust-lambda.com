@@ -31,14 +31,14 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 );
 ---
 
-<div class="flex flex-row -space-x-2">
+<div class="flex flex-row flex-wrap -space-x-2">
   {
     readers.map((r) => (
       <Avatar
         image={images[`/src/images/devs/${r.image}`]()}
         alt={`${r.name}'s portrait`}
         fallback={r.name.substring(0, 2).toLocaleUpperCase()}
-        class="w-10 h-10"
+        class="w-8 h-8 md:w-10 md:h-10"
         width={40}
         loading="eager"
         decoding="sync"
@@ -48,11 +48,11 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   <Avatar
     alt="More readers"
     fallback={`+${total - readers.length}`}
-    class="w-10 h-10"
+    class="w-8 h-8 md:w-10 md:h-10"
     width={40}
   />
 </div>
-<p class="mt-2 text-sm text-foreground/80">
+<p class="mt-2 text-sm text-foreground/80 text-left">
   Join {
     readers.slice(0, 6).map((r) => (
       <>
