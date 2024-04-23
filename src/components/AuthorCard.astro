@@ -1,0 +1,121 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import ExternalIcon from "./icons/ExternalIcon.astro";
+import XIcon from "./icons/XIcon.astro";
+import LinkedinIcon from "./icons/LinkedinIcon.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
+import YoutubeIcon from "./icons/YoutubeIcon.astro";
+
+type Props = {
+  author: CollectionEntry<"authors">;
+};
+
+const author = Astro.props.author;
+const { Content } = await Astro.props.author.render();
+---
+
+<div
+  class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm flex flex-row justify-center gap-16 flex-1"
+>
+  <div class="flex flex-col gap-4">
+    <div>
+      <h3 class="text-2xl font-bold line-clamp-1" title={author.data.name}>
+        {author.data.name}
+      </h3>
+      <h4
+        class="text-lg font-semibold text-muted-foreground line-clamp-1"
+        title={author.data.jobTitle}
+      >
+        {author.data.jobTitle}
+      </h4>
+    </div>
+    <Image
+      src={author.data.picture}
+      alt={author.data.pictureAlt}
+      width={400}
+      height={400}
+      class="rounded-2xl w-full max-w-[400px] aspect-square"
+    />
+    <div class="max-w-[400px]">
+      <Content />
+    </div>
+    <ul class="flex gap-2">
+      {
+        author.data.links?.website && (
+          <li>
+            <a
+              href={author.data.links.website}
+              class="inline-block p-2 rounded-md bg-muted border-border border hover:bg-primary hover:text-primary-foreground transition-colors"
+              title="Website"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ExternalIcon class="h-8 w-8" />
+            </a>
+          </li>
+        )
+      }
+      {
+        author.data.links?.x && (
+          <li>
+            <a
+              href={author.data.links.x}
+              class="inline-block p-2 rounded-md bg-muted border-border border hover:bg-primary hover:text-primary-foreground transition-colors"
+              title="Website"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <XIcon class="h-8 w-8" />
+            </a>
+          </li>
+        )
+      }
+      {
+        author.data.links?.linkedin && (
+          <li>
+            <a
+              href={author.data.links.linkedin}
+              class="inline-block p-2 rounded-md bg-muted border-border border hover:bg-primary hover:text-primary-foreground transition-colors"
+              title="Website"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedinIcon class="h-8 w-8" />
+            </a>
+          </li>
+        )
+      }
+      {
+        author.data.links?.github && (
+          <li>
+            <a
+              href={author.data.links.github}
+              class="inline-block p-2 rounded-md bg-muted border-border border hover:bg-primary hover:text-primary-foreground transition-colors"
+              title="Website"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon class="h-8 w-8" />
+            </a>
+          </li>
+        )
+      }
+      {
+        author.data.links?.youtube && (
+          <li>
+            <a
+              href={author.data.links.youtube}
+              class="inline-block p-2 rounded-md bg-muted border-border border hover:bg-primary hover:text-primary-foreground transition-colors"
+              title="Website"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <YoutubeIcon class="h-8 w-8" />
+            </a>
+          </li>
+        )
+      }
+    </ul>
+  </div>
+</div>

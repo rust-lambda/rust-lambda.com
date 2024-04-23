@@ -1,18 +1,28 @@
 ---
+import { getCollection, type CollectionEntry } from "astro:content";
+import AuthorCard from "../AuthorCard.astro";
 
+const authors: CollectionEntry<"authors">[] = (
+  await getCollection("authors")
+).sort(
+  (a: CollectionEntry<"authors">, b: CollectionEntry<"authors">) =>
+    a.data.sortOrder - b.data.sortOrder
+);
 ---
 
 <section
   id="authors"
   class="my-12 px-4 md:px-6 text-foreground scroll-m-8 scroll-smooth"
 >
-  <div
-    class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
-  >
+  <div class="mt-32 mb-8 flex justify-center align-middle gap-4 items-center">
     <h2
       class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
     >
       Meet the authors
     </h2>
+  </div>
+
+  <div class="flex flex-col md:flex-row gap-4 justify-center">
+    {authors.map((author) => <AuthorCard author={author} />)}
   </div>
 </section>
