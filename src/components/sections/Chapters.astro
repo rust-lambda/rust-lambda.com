@@ -179,47 +179,53 @@ const progress =
   <div
     class="bg-card/50 text-card-foreground border border-border rounded-md p-8 text-lg"
   >
-    <div class="flex flex-col gap-16 w-fit mx-auto">
-      <p class="text-xl/8 max-w-[32rem]">
-        This book consists of <strong>{chapters.length} chapters</strong>, each
-        a step forward on your journey to bring Rust and AWS Lambda into
-        production, unlocking gains in performance and cost efficiency. Explore
-        the seamless integration of Rust with Lambda and witness the
-        transformative impact it can have on your projects.
-      </p>
-
+    <div class="flex flex-col gap-16 w-fit mx-auto items-center">
       <div
-        class="bg-card/75 text-card-foreground border border-border rounded-md p-8 shadow-sm max-w-[600px]"
+        class="flex flex-col lg:flex-row gap-8 lg:gap-32 justify-center items-center"
       >
-        <div class="flex gap-2 text-primary font-semibold mb-4">
-          <AlertIcon /> This book is a work in progress!
-        </div>
-        <div class="my-6">
-          <span class="text-muted-foreground text-sm"
-            >Progress ({progress.toFixed(2)}%)</span
-          >
-          <Progress value={progress} class="w-full mt-2" />
-        </div>
-        <div class="flex flex-col gap-2">
-          <p class="text-sm font-semibold">The content is subject to change.</p>
-          <p class="text-sm">
-            If you get <a
-              href="#early-access"
-              class="underline decoration-dotted underline-offset-2 hover:text-primary"
-              >the EARLY-ACCESS bundle</a
-            >, you'll have access to new chapters and updates and you will be
-            able to contribute with your precious feedback.
-          </p>
-          <p class="mt-6">
-            <BuyButton />
-          </p>
+        <p class="text-xl/8 max-w-[32rem] flex-1">
+          This book consists of <strong>{chapters.length} chapters</strong>,
+          each a step forward on your journey to bring Rust and AWS Lambda into
+          production, unlocking gains in performance and cost efficiency.
+          Explore the seamless integration of Rust with Lambda and witness the
+          transformative impact it can have on your projects.
+        </p>
+
+        <div
+          class="bg-card/75 text-card-foreground border border-border rounded-md p-8 shadow-sm max-w-[600px] flex-1"
+        >
+          <div class="flex gap-2 text-primary font-semibold mb-4">
+            <AlertIcon /> This book is a work in progress!
+          </div>
+          <div class="my-6">
+            <span class="text-muted-foreground text-sm"
+              >Progress ({progress.toFixed(2)}%)</span
+            >
+            <Progress value={progress} class="w-full mt-2" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <p class="text-sm font-semibold">
+              The content is subject to change.
+            </p>
+            <p class="text-sm">
+              If you get <a
+                href="#early-access"
+                class="underline decoration-dotted underline-offset-2 hover:text-primary"
+                >the EARLY-ACCESS bundle</a
+              >, you'll have access to new chapters and updates and you will be
+              able to contribute with your precious feedback.
+            </p>
+            <p class="mt-6">
+              <BuyButton />
+            </p>
+          </div>
         </div>
       </div>
 
-      <ol class="flex flex-col gap-12">
+      <ol class="grid gap-8 grid-cols-1 lg:grid-cols-2">
         {
           chapters.map((chapter) => (
-            <li class="max-w-[38rem]">
+            <li class="max-w-[38rem] p-4 border border-border border-dotted rounded-md">
               <Badge
                 class="float-end mt-4 ml-4"
                 intent={statusVariant(chapter.status)}

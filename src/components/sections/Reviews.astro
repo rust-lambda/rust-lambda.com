@@ -3,13 +3,6 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import ReviewEntry from "../ReviewEntry.astro";
 
 const reviews: CollectionEntry<"reviews">[] = await getCollection("reviews");
-const reviewChunks: Array<CollectionEntry<"reviews">[]> = reviews.reduce(
-  (acc: Array<CollectionEntry<"reviews">[]>, curr, i) => {
-    acc[i % 3].push(curr);
-    return acc;
-  },
-  [[], [], []]
-);
 ---
 
 <section
@@ -29,17 +22,15 @@ const reviewChunks: Array<CollectionEntry<"reviews">[]> = reviews.reduce(
     </h3>
   </div>
 
-  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-    {
-      reviewChunks.map((chunk) => (
-        <ul class="space-y-8">
-          {chunk.map((review) => (
-            <li class="text-sm leading-6">
-              <ReviewEntry review={review} />
-            </li>
-          ))}
-        </ul>
-      ))
-    }
+  <div class="columns-1 md:columns-2 lg:columns-3 gap-8">
+    <ul class="space-y-8">
+      {
+        reviews.map((review) => (
+          <li class="text-sm leading-6 break-inside-avoid">
+            <ReviewEntry review={review} />
+          </li>
+        ))
+      }
+    </ul>
   </div>
 </section>

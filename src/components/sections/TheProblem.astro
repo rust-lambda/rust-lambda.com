@@ -52,31 +52,74 @@ import PiggyBankIcon from "../icons/PiggyBankIcon.astro";
         </p>
       </div>
     </div>
-    <div class="hidden md:flex p-4 opacity-50 self-end justify-end flex-1">
-      <div class="h-16 w-16 md:h-32 md:w-32 overflow-hidden alternate-content">
+    <div
+      class="hidden md:flex p-4 opacity-50 self-end justify-end flex-1 alternate-content"
+    >
+      <div
+        data-animationidx="0"
+        class="block h-16 w-16 md:h-32 md:w-32 overflow-hidden [animation:4s_ease-in-out_0s_1_forwards_slideinout]"
+      >
         <RocketIcon
-          class="h-16 w-16 md:h-32 md:w-32 text-background dark:text-foreground"
+          class="h-16 w-16 md:h-32 md:w-32 text-muted-foreground/50"
         />
+      </div>
+      <div
+        data-animationidx="1"
+        class="hidden h-16 w-16 md:h-32 md:w-32 overflow-hidden"
+      >
         <FlowerIcon
-          class="h-16 w-16 md:h-32 md:w-32 text-background dark:text-foreground"
+          class="h-16 w-16 md:h-32 md:w-32 text-muted-foreground/50"
         />
+      </div>
+      <div
+        data-animationidx="2"
+        class="hidden h-16 w-16 md:h-32 md:w-32 overflow-hidden"
+      >
         <PiggyBankIcon
-          class="h-16 w-16 md:h-32 md:w-32 text-background dark:text-foreground"
+          class="h-16 w-16 md:h-32 md:w-32 text-muted-foreground/50"
         />
       </div>
     </div>
   </div>
 </section>
+<style is:global>
+  @keyframes slideinout {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    5% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+    95% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
+</style>
 <script>
+  const animationClass = "[animation:4s_ease-in-out_0s_1_forwards_slideinout]";
   const items: NodeListOf<SVGAElement> = document.querySelectorAll(
     ".alternate-content > *"
   );
-  let index = 0;
-  setInterval(() => {
-    items.forEach((item) => {
-      item.style.display = "none";
-    });
-    items[index].style.display = "block";
-    index = (index + 1) % items.length;
-  }, 5000);
+  function animateNext(e: AnimationEvent) {
+    const currentIdx = Number.parseInt(
+      (e.target as HTMLElement).dataset.animationidx as string
+    );
+    const nextIdx = (currentIdx + 1) % items.length;
+    const currentItem = items[currentIdx];
+    const nextItem = items[nextIdx];
+    currentItem.classList.remove("block", animationClass);
+    currentItem.classList.add("hidden");
+    nextItem.classList.remove("hidden");
+    nextItem.classList.add("block", animationClass);
+  }
+  items.forEach((item) => {
+    item.addEventListener("animationend", animateNext);
+  });
 </script>
