@@ -1,5 +1,5 @@
 ---
-import NavLinks from "../NavLinks.astro";
+import { NAV_LINKS } from "../../consts";
 
 const year = new Date().getFullYear();
 ---
@@ -40,7 +40,16 @@ const year = new Date().getFullYear();
     </div>
     <div class="order-1 md:order-2 grow flex justify-end">
       <nav class="flex flex-wrap gap-2 items-center">
-        <NavLinks />
+        {
+          NAV_LINKS.map((link) => (
+            <a
+              class="text-foreground/90 underline-offset-2 hover:underline hover:text-foreground"
+              href={link.href}
+            >
+              {link.label}
+            </a>
+          ))
+        }
         <a
           href="https://store.rust-lambda.com/"
           class="inline-block px-4 py-2 bg-primary/50 text-primary-foreground hover:bg-primary transition-colors rounded-md"

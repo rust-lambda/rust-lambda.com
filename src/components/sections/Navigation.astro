@@ -1,16 +1,102 @@
 ---
-import NavLinks from "../NavLinks.astro";
 import ThemeSwitcher from "../ThemeSwitcher.astro";
+import { NAV_LINKS } from "../../consts";
 ---
 
-<header class="py-4 md:py-6 z-20">
-  <div class="container flex items-center justify-end px-4 md:px-6">
-    <a class="sr-only flex items-center space-x-2 text-2xl font-bold" href="/">
-      Crafting Lambda Functions in Rust
-    </a>
-    <nav class="hidden space-x-4 text-base font-medium md:flex">
-      <NavLinks />
+<header class="fixed w-full py-1 md:py-2 z-50">
+  <nav class="max-w-6xl mx-auto px-4 flex flex-wrap">
+    <div class="peer flex justify-start">
+      <a
+        class="sr-only flex items-center space-x-2 text-2xl font-bold"
+        href="/"
+      >
+        Crafting Lambda Functions in Rust
+      </a>
+      <label
+        class="cursor-pointer inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-foreground rounded-lg md:hidden hover:bg-muted focus:outline-none focus:ring-2 focus:ring-border"
+      >
+        <input class="hidden" type="checkbox" checked name="menu" />
+        <span class="sr-only">Open main menu</span>
+        <svg
+          class="w-5 h-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 17 14"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15"></path>
+        </svg>
+      </label>
+    </div>
+    <div class="order-1 md:order-2 grow flex justify-end p-2">
       <ThemeSwitcher />
-    </nav>
-  </div>
+    </div>
+    <div
+      class="order-1 max-md:peer-has-[:checked]:hidden w-full md:block md:w-auto"
+    >
+      <ul
+        class="bg-card border border-border md:border-none md:bg-transparent rounded-b-md flex flex-col md:flex-row"
+      >
+        {
+          NAV_LINKS.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="block py-2 px-3 rounded hover:bg-primary/50 hover:text-primary-foreground"
+                aria-current="page"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </nav>
 </header>
+<script>
+  // The debounce function receives our function as a parameter
+  const debounce = (fn: Function) => {
+    // This holds the requestAnimationFrame reference, so we can cancel it if we wish
+    let frame: number;
+
+    // The debounce function returns a new function that can receive a variable number of arguments
+    return (...params: unknown[]) => {
+      // If the frame variable has been defined, clear it now, and queue for next frame
+      if (frame) {
+        cancelAnimationFrame(frame);
+      }
+
+      // Queue our function call for the next frame
+      frame = requestAnimationFrame(() => {
+        // Call our function and pass any params we received
+        fn(...params);
+      });
+    };
+  };
+  const header = document.querySelector("header");
+  const activeStateClassList = [
+    "bg-card/75",
+    "backdrop-blur-sm",
+    "border-b",
+    "border-border",
+    "shadow-md",
+  ];
+  function updateNavStyleOnScroll() {
+    if (window.scrollY > 0) {
+      header?.classList.add(...activeStateClassList);
+    } else {
+      header?.classList.remove(...activeStateClassList);
+    }
+  }
+
+  document.addEventListener("scroll", debounce(updateNavStyleOnScroll), {
+    passive: true,
+  });
+  updateNavStyleOnScroll();
+</script>

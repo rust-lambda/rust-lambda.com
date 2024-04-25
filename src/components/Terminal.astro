@@ -1,16 +1,21 @@
 ---
+import { cn } from "../lib/utils";
+
 type Props = {
   title: string;
+  class?: string;
 };
 
 const props = Astro.props;
 ---
 
-<div
-  class="bg-gray-200 text-center text-xs text-gray-700 font-semibold rounded-t-sm py-1 shadow-inner border border-gray-300"
->
-  <span class="drop-shadow-sm">{props.title}</span>
-</div>
-<div class="bg-black/75 rounded-b-sm shadow-inner">
-  <slot />
+<div class={cn("", props.class)}>
+  <div
+    class="bg-gray-200 text-center text-xs text-gray-700 font-semibold rounded-t-sm py-1 shadow-inner border border-gray-300"
+  >
+    <span class="drop-shadow-sm">{props.title}</span>
+  </div>
+  <div class="bg-black/75 rounded-b-sm shadow-inner min-w-0">
+    <slot />
+  </div>
 </div>

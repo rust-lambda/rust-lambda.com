@@ -1,11 +1,6 @@
 ---
 import "../style.css";
-
-interface Props {
-  title: string;
-}
-
-const { title } = Astro.props;
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
 <script is:inline>
@@ -34,7 +29,8 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <title>{SITE_TITLE}</title>
+    <meta name="description" content={SITE_DESCRIPTION} />
     <meta name="viewport" content="width=device-width" />
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
@@ -79,13 +75,10 @@ const { title } = Astro.props;
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
   </head>
   <body
     class="bg-[linear-gradient(to_right,hsl(var(--muted))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--muted))_1px,transparent_1px)] bg-[size:14px_24px]"
   >
-    <div class="m-auto max-w-6xl">
-      <slot />
-    </div>
+    <slot />
   </body>
 </html>

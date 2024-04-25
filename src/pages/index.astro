@@ -15,16 +15,16 @@ import TheProblem from "../components/sections/TheProblem.astro";
 import Footer from "../components/sections/Footer.astro";
 ---
 
-<Layout title="Crafting Lambda Functions in Rust - E-book">
+<Layout>
   <div class="relative flex flex-col min-h-screen">
     <div
-      class="absolute -left-[15%] top-0 -z-10 m-auto h-[400px] w-[400px] md:h-[610px] md:w-[610px] rounded-full bg-[#FD8001] opacity-50 blur-[100px]"
+      class="absolute -left-[15%] top-0 -z-10 m-auto max-w-full max-h-full h-[400px] w-[400px] md:h-[610px] md:w-[610px] rounded-full bg-[#FD8001] opacity-50 blur-[100px]"
     >
     </div>
 
     <Navigation />
 
-    <main class="flex-1">
+    <main class="flex-1 max-w-6xl mx-auto">
       <Hero />
       <TheProblem />
       <LeadQuote />

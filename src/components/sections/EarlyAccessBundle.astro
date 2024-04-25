@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { PRICE_FULL, PRICE_DISCOUNTED } from "../../consts";
 import coverLight from "../../images/cover-light.png";
 import coverDark from "../../images/cover-dark.png";
 import BuyButton from "../BuyButton.astro";
@@ -8,7 +9,7 @@ import CheckIcon from "../icons/CheckIcon.astro";
 
 <section
   id="early-access"
-  class="my-12 px-4 md:px-6 text-foreground scroll-m-4 scroll-smooth"
+  class="my-12 px-4 md:px-6 text-foreground scroll-m-28 scroll-smooth"
 >
   <div
     class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
@@ -68,8 +69,9 @@ import CheckIcon from "../icons/CheckIcon.astro";
                   >discounted price</strong
                 > of <strike
                   class="font-normal line-through decoration-destructive/50 decoration-2"
-                  >39.90</strike
-                > 14.90 $!</span
+                  >{PRICE_FULL}</strike
+                >
+                {PRICE_DISCOUNTED} $!</span
               >
             </li>
             <li class="flex gap-2 items-baseline">

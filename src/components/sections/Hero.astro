@@ -1,12 +1,13 @@
 ---
 import Image from "astro/components/Image.astro";
+import { PRICE_FULL, PRICE_DISCOUNTED } from "../../consts";
 import coverLight from "../../images/cover-light.png";
 import coverDark from "../../images/cover-dark.png";
 import Readers from "../Readers.astro";
 import BuyButton from "../BuyButton.astro";
 ---
 
-<section class="py-12 lg:py-24">
+<section class="pt-20 pb-12 lg:py-24">
   <div
     class="container flex flex-col items-center gap-10 px-4 md:px-6 lg:gap-16 lg:flex-row"
   >
@@ -41,7 +42,7 @@ import BuyButton from "../BuyButton.astro";
         </h1>
       </div>
       <p
-        class="max-w-[700px] text-foreground/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400"
+        class="max-w-[700px] text-foreground/80 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed"
       >
         A practical guide on how to build <strong>efficient</strong>, <strong
           >sustainable</strong
@@ -60,8 +61,9 @@ import BuyButton from "../BuyButton.astro";
               ></span
             > e-book package for just <strike
               class="font-normal line-through decoration-destructive/50 decoration-2"
-              >39.90</strike
-            > 14.90 $!</a
+              >{PRICE_FULL}</strike
+            >
+            {PRICE_DISCOUNTED} $!</a
           >
         </p>
       </div>

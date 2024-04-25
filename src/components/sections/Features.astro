@@ -60,7 +60,7 @@ const rustCodeExample = `async fn function_handler(
 
 <section
   id="features"
-  class="mt-40 my-12 px-4 md:px-6 text-foreground flex flex-col justify-center align-middle gap-4 items-center scroll-m-8 scroll-smooth"
+  class="mt-40 my-12 px-4 md:px-6 text-foreground flex flex-col justify-center align-middle gap-4 items-center scroll-m-28 scroll-smooth"
 >
   <h2
     class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
@@ -79,27 +79,28 @@ const rustCodeExample = `async fn function_handler(
 
 <section class="my-12 px-4 md:px-6 text-foreground">
   <div
-    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm mr-16"
+    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm"
   >
-    <div class="w-7/12 absolute -right-8 top-4 shadow-md">
-      <Terminal title="handler.rs">
-        <Code
-          class="p-2 text-xs rounded-b-sm max-h-44"
-          code={rustCodeExample}
-          lang="rust"
-          theme="aurora-x"
-        />
-      </Terminal>
-    </div>
-    <div class="w-5/12">
-      <div class="flex flex-col space-y-2">
+    <div class="grid grid-rows-1 lg:grid-cols-12 gap-8">
+      <div class="col-span-12 md:col-span-4">
         <TerminalIcon class="w-12 h-12 text-accent" />
         <h2 class="text-lg font-bold">Hands-on code examples</h2>
-        <p>
+        <p class="mt-2 max-w-96">
           Learn by doing with practical and realistic code examples that
           demonstrate how to write efficient and sustainable Lambda functions in
           Rust.
         </p>
+      </div>
+
+      <div class="col-span-12 md:col-span-8">
+        <Terminal title="handler.rs" class="flex-1 w-full">
+          <Code
+            class="p-2 text-xs rounded-b-sm overflow-auto whitespace-pre-wrap max-h-[300px] lg:max-h-none"
+            code={rustCodeExample}
+            lang="rust"
+            theme="aurora-x"
+          />
+        </Terminal>
       </div>
     </div>
   </div>
@@ -107,24 +108,13 @@ const rustCodeExample = `async fn function_handler(
 
 <section class="my-12 px-4 md:px-6 text-foreground">
   <div
-    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm ml-16 flex flex-col items-end"
+    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm"
   >
-    <div
-      class="w-7/12 absolute -left-8 top-4 rounded-md border border-border shadow-md h-[calc(100%-2rem)] glow"
-    >
-      <Image
-        src={applicationComposer}
-        width={700}
-        height={180}
-        class="rounded-md w-full h-full object-cover"
-        alt="A screenshot of Application Composer showcasing an API Gateway connected to multiple Lambda functions"
-      />
-    </div>
-    <div class="w-5/12">
-      <div class="flex flex-col space-y-2 self-end justify-self-end">
+    <div class="grid grid-rows-1 lg:grid-cols-12 gap-8">
+      <div class="col-span-12 md:col-span-4 lg:order-2">
         <StormIcon class="w-12 h-12 text-accent" />
         <h2 class="text-lg font-bold">Design serverless architectures</h2>
-        <p>
+        <p class="mt-2 max-w-96">
           It's not just about the Lambda functions! Learn how to design complete
           serverless architectures using AWS services like <strong
             >API Gateway</strong
@@ -132,34 +122,45 @@ const rustCodeExample = `async fn function_handler(
           using <strong>Infrastructure as Code</strong>.
         </p>
       </div>
+
+      <div class="col-span-12 md:col-span-8 lg:order-1">
+        <Image
+          src={applicationComposer}
+          width={700}
+          height={180}
+          class="rounded-md w-full h-full object-cover"
+          alt="A screenshot of Application Composer showcasing an API Gateway connected to multiple Lambda functions"
+        />
+      </div>
     </div>
   </div>
 </section>
 
 <section class="my-12 px-4 md:px-6 text-foreground">
   <div
-    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm mr-16"
+    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm"
   >
-    <div class="w-7/12 absolute -right-8 top-16 shadow-md">
-      <Terminal title="~/my-awesome-rust-lambda">
-        <Code
-          class="p-2 text-lg rounded-b-sm max-h-44"
-          code={"$ cargo lambda build --release --arm64\n\n\n"}
-          lang="bash"
-          theme="aurora-x"
-        />
-      </Terminal>
-    </div>
-    <div class="w-5/12">
-      <div class="flex flex-col space-y-2">
+    <div class="grid grid-rows-1 lg:grid-cols-12 gap-8">
+      <div class="col-span-12 md:col-span-4">
         <WrenchIcon class="w-12 h-12 text-accent" />
         <h2 class="text-lg font-bold">The tools of the trade</h2>
-        <p>
+        <p class="mt-2 max-w-96">
           Discover the best tools and practices to <strong>build</strong>, <strong
             >test</strong
           >, and <strong>deploy</strong>
           <strong>production-grade</strong> Lambda functions using Rust.
         </p>
+      </div>
+
+      <div class="col-span-12 md:col-span-8 content-evenly">
+        <Terminal title="~/my-awesome-rust-lambda">
+          <Code
+            class="p-2 text-lg rounded-b-sm overflow-auto whitespace-pre-wrap max-h-44"
+            code={"$ cargo lambda build --release --arm64\n\n\n"}
+            lang="bash"
+            theme="aurora-x"
+          />
+        </Terminal>
       </div>
     </div>
   </div>

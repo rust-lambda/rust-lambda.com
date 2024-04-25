@@ -146,27 +146,25 @@ const chapters: Chapter[] = [
   },
 ];
 
-const completedChapters = chapters.filter(
-  (chapter) => chapter.status === "completed"
+const chaptersByStatus = chapters.reduce(
+  (acc: Record<Status, Chapter[]>, chapter: Chapter) => {
+    acc[chapter.status].push(chapter);
+    return acc;
+  },
+  { completed: [], draft: [], "in-progress": [], planned: [] }
 );
-const draftChapters = chapters.filter((chapter) => chapter.status === "draft");
-const inProgressChapters = chapters.filter(
-  (chapter) => chapter.status === "in-progress"
-);
-// const plannedChapters = chapters.filter(
-//   (chapter) => chapter.status === "planned"
-// );
 
 const progress =
-  (inProgressChapters.length * 0.5 +
-    draftChapters.length * 0.8 +
-    completedChapters.length) /
+  (chaptersByStatus["completed"].length * 1 +
+    chaptersByStatus["draft"].length * 0.8 +
+    chaptersByStatus["in-progress"].length * 0.5 +
+    chaptersByStatus["planned"].length * 0) /
   chapters.length;
 ---
 
 <section
   id="chapters"
-  class="my-12 px-4 md:px-6 text-foreground scroll-m-8 scroll-smooth"
+  class="my-12 px-4 md:px-6 text-foreground scroll-m-28 scroll-smooth"
 >
   <div
     class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
@@ -179,10 +177,18 @@ const progress =
   </div>
 
   <div
-    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm md:mr-16"
+    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm flex flex-col gap-16 w-fit mx-auto max-w-full"
   >
+    <p class="text-xl/8 max-w-[32rem]">
+      This book consists of <strong>{chapters.length} chapters</strong>, each a
+      step forward on your journey to bring Rust and AWS Lambda into production,
+      unlocking gains in performance and cost efficiency. Explore the seamless
+      integration of Rust with Lambda and witness the transformative impact it
+      can have on your projects.
+    </p>
+
     <div
-      class="float-end ml-4 mb-4 bg-card/75 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm -mr-16 shadow-sm max-w-96"
+      class="bg-card/75 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm shadow-sm max-w-[600px] mx-auto"
     >
       <div class="flex gap-2 text-primary font-semibold mb-4">
         <AlertIcon /> This book is a work in progress!
@@ -208,14 +214,6 @@ const progress =
         </p>
       </div>
     </div>
-
-    <p class="text-xl/8 mb-16 max-w-[32rem]">
-      This book consists of <strong>{chapters.length} chapters</strong>, each a
-      step forward on your journey to bring Rust and AWS Lambda into production,
-      unlocking gains in performance and cost efficiency. Explore the seamless
-      integration of Rust with Lambda and witness the transformative impact it
-      can have on your projects.
-    </p>
 
     <ol class="flex flex-col gap-12">
       {
