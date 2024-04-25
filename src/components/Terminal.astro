@@ -15,7 +15,9 @@ const props = Astro.props;
   >
     <span class="drop-shadow-sm">{props.title}</span>
   </div>
-  <div class="bg-black/75 rounded-b-sm shadow-inner min-w-0">
+  <div
+    class="bg-black/75 rounded-b-sm shadow-inner min-w-0 border border-border border-t-0"
+  >
     <slot />
   </div>
 </div>

@@ -6,7 +6,8 @@
   :root {
     --background: 57 83% 95%;
     --foreground: 279 81% 4%;
-    --primary: 347 88% 35%;
+    --primary: 347 88% 25%;
+    --primary-alt: 347 88% 35%;
     --primary-foreground: 57 83% 95%;
     --secondary: 57 10% 80%;
     --secondary-foreground: 50 9% 26%;
@@ -29,11 +30,12 @@
   .dark {
     --background: 245 63% 7%;
     --foreground: 57 83% 95%;
-    --primary: 347 87% 33%;
-    --primary-foreground: 57 83% 95%;
+    --primary: 30 94% 53%;
+    --primary-alt: 30 94% 73%;
+    --primary-foreground: 57 83% 5%;
     --secondary: 248 20% 24%;
     --secondary-foreground: 57 18% 81%;
-    --accent: 30 94% 43%;
+    --accent: 347 87% 33%;
     --accent-foreground: 57 83% 95%;
     --muted: 245 35% 16%;
     --muted-foreground: 244 1% 59%;
