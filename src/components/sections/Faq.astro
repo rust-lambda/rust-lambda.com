@@ -5,10 +5,7 @@ import FaqEntry from "../FaqEntry.astro";
 const faqs: CollectionEntry<"faq">[] = await getCollection("faq");
 ---
 
-<section
-  id="faq"
-  class="my-12 px-4 md:px-6 text-foreground scroll-m-28 scroll-smooth"
->
+<section id="faq" class="my-12 text-foreground scroll-m-28 scroll-smooth">
   <div
     class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
   >
@@ -19,7 +16,7 @@ const faqs: CollectionEntry<"faq">[] = await getCollection("faq");
     </h2>
   </div>
   <div
-    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm"
+    class="bg-card/50 text-card-foreground border border-border rounded-md p-8 backdrop-blur-sm"
   >
     <div class="space-y-4">
       {faqs.map((faq) => <FaqEntry faq={faq} />)}

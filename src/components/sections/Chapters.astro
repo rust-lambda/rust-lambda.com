@@ -164,10 +164,10 @@ const progress =
 
 <section
   id="chapters"
-  class="my-12 px-4 md:px-6 text-foreground scroll-m-28 scroll-smooth"
+  class="mt-32 mb-12 text-foreground scroll-m-28 scroll-smooth"
 >
   <div
-    class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
+    class="mb-8 flex flex-col justify-center align-middle gap-4 items-center"
   >
     <h2
       class="text-center text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl/line-tight bg-gradient-to-tr from-foreground to-[#A60B2C] inline-block text-transparent bg-clip-text"
@@ -177,66 +177,68 @@ const progress =
   </div>
 
   <div
-    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm flex flex-col gap-16 w-fit mx-auto max-w-full"
+    class="bg-card/50 text-card-foreground border border-border rounded-md p-8 text-lg"
   >
-    <p class="text-xl/8 max-w-[32rem]">
-      This book consists of <strong>{chapters.length} chapters</strong>, each a
-      step forward on your journey to bring Rust and AWS Lambda into production,
-      unlocking gains in performance and cost efficiency. Explore the seamless
-      integration of Rust with Lambda and witness the transformative impact it
-      can have on your projects.
-    </p>
+    <div class="flex flex-col gap-16 w-fit mx-auto">
+      <p class="text-xl/8 max-w-[32rem]">
+        This book consists of <strong>{chapters.length} chapters</strong>, each
+        a step forward on your journey to bring Rust and AWS Lambda into
+        production, unlocking gains in performance and cost efficiency. Explore
+        the seamless integration of Rust with Lambda and witness the
+        transformative impact it can have on your projects.
+      </p>
 
-    <div
-      class="bg-card/75 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm shadow-sm max-w-[600px] mx-auto"
-    >
-      <div class="flex gap-2 text-primary font-semibold mb-4">
-        <AlertIcon /> This book is a work in progress!
+      <div
+        class="bg-card/75 text-card-foreground border border-border rounded-md p-8 shadow-sm max-w-[600px]"
+      >
+        <div class="flex gap-2 text-primary font-semibold mb-4">
+          <AlertIcon /> This book is a work in progress!
+        </div>
+        <div class="my-6">
+          <span class="text-muted-foreground text-sm"
+            >Progress ({progress.toFixed(2)}%)</span
+          >
+          <Progress value={progress} class="w-full mt-2" />
+        </div>
+        <div class="flex flex-col gap-2">
+          <p class="text-sm font-semibold">The content is subject to change.</p>
+          <p class="text-sm">
+            If you get <a
+              href="#early-access"
+              class="underline decoration-dotted underline-offset-2 hover:text-primary"
+              >the EARLY-ACCESS bundle</a
+            >, you'll have access to new chapters and updates and you will be
+            able to contribute with your precious feedback.
+          </p>
+          <p class="mt-6">
+            <BuyButton />
+          </p>
+        </div>
       </div>
-      <div class="my-6">
-        <span class="text-muted-foreground text-sm"
-          >Progress ({progress.toFixed(2)}%)</span
-        >
-        <Progress value={progress} class="w-full mt-2" />
-      </div>
-      <div class="flex flex-col gap-2">
-        <p class="text-sm font-semibold">The content is subject to change.</p>
-        <p class="text-sm">
-          If you get <a
-            href="#early-access"
-            class="underline decoration-dotted underline-offset-2 hover:text-primary"
-            >the EARLY-ACCESS bundle</a
-          >, you'll have access to new chapters and updates and you will be able
-          to contribute with your precious feedback.
-        </p>
-        <p class="mt-6">
-          <BuyButton />
-        </p>
-      </div>
+
+      <ol class="flex flex-col gap-12">
+        {
+          chapters.map((chapter) => (
+            <li class="max-w-[38rem]">
+              <Badge
+                class="float-end mt-4 ml-4"
+                intent={statusVariant(chapter.status)}
+              >
+                {statusDesc(chapter.status)}
+              </Badge>
+              <h3>
+                <span class="uppercase text-muted-foreground font-bold text-sm block">
+                  {chapter.section}.
+                </span>
+                <span class="text-primary font-bold text-xl">
+                  {chapter.title}
+                </span>
+              </h3>
+              <h4 class="text-muted-foreground mt-2">{chapter.description}</h4>
+            </li>
+          ))
+        }
+      </ol>
     </div>
-
-    <ol class="flex flex-col gap-12">
-      {
-        chapters.map((chapter) => (
-          <li class="max-w-[38rem]">
-            <Badge
-              class="float-end mt-4"
-              intent={statusVariant(chapter.status)}
-            >
-              {statusDesc(chapter.status)}
-            </Badge>
-            <h3>
-              <span class="uppercase text-muted-foreground font-bold text-sm block">
-                {chapter.section}.
-              </span>
-              <span class="text-primary font-bold text-xl">
-                {chapter.title}
-              </span>
-            </h3>
-            <h4 class="text-muted-foreground mt-2">{chapter.description}</h4>
-          </li>
-        ))
-      }
-    </ol>
   </div>
 </section>

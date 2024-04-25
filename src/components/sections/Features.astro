@@ -77,25 +77,25 @@ const rustCodeExample = `async fn function_handler(
   </p>
 </section>
 
-<section class="my-12 px-4 md:px-6 text-foreground">
+<section class="my-12 text-foreground">
   <div
-    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm"
+    class="bg-card/50 text-card-foreground border border-border rounded-md p-8"
   >
-    <div class="grid grid-rows-1 lg:grid-cols-12 gap-8">
-      <div class="col-span-12 md:col-span-4">
+    <div class="grid grid-rows-1 grid-cols-1 lg:grid-cols-12 gap-8">
+      <div class="col-span-1 lg:col-span-4">
         <TerminalIcon class="w-12 h-12 text-accent" />
-        <h2 class="text-lg font-bold">Hands-on code examples</h2>
-        <p class="mt-2 max-w-96">
+        <h2 class="mt-4 text-lg font-bold">Hands-on code examples</h2>
+        <p class="mt-1 max-w-96">
           Learn by doing with practical and realistic code examples that
           demonstrate how to write efficient and sustainable Lambda functions in
           Rust.
         </p>
       </div>
 
-      <div class="col-span-12 md:col-span-8">
+      <div class="col-span-1 lg:col-span-8">
         <Terminal title="handler.rs" class="flex-1 w-full">
           <Code
-            class="p-2 text-xs rounded-b-sm overflow-auto whitespace-pre-wrap max-h-[300px] lg:max-h-none"
+            class="p-2 text-xs lg:text-sm rounded-b-sm overflow-auto whitespace-pre-wrap max-h-[300px] lg:max-h-none"
             code={rustCodeExample}
             lang="rust"
             theme="aurora-x"
@@ -106,15 +106,15 @@ const rustCodeExample = `async fn function_handler(
   </div>
 </section>
 
-<section class="my-12 px-4 md:px-6 text-foreground">
+<section class="my-12 text-foreground">
   <div
-    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm"
+    class="bg-card/50 text-card-foreground border border-border rounded-md p-8"
   >
-    <div class="grid grid-rows-1 lg:grid-cols-12 gap-8">
-      <div class="col-span-12 md:col-span-4 lg:order-2">
+    <div class="grid grid-rows-1 grid-cols-1 lg:grid-cols-12 gap-8">
+      <div class="col-span-1 lg:col-span-4 lg:order-2">
         <StormIcon class="w-12 h-12 text-accent" />
-        <h2 class="text-lg font-bold">Design serverless architectures</h2>
-        <p class="mt-2 max-w-96">
+        <h2 class="mt-4 text-lg font-bold">Design serverless architectures</h2>
+        <p class="mt-1 max-w-96">
           It's not just about the Lambda functions! Learn how to design complete
           serverless architectures using AWS services like <strong
             >API Gateway</strong
@@ -123,7 +123,7 @@ const rustCodeExample = `async fn function_handler(
         </p>
       </div>
 
-      <div class="col-span-12 md:col-span-8 lg:order-1">
+      <div class="col-span-1 lg:col-span-8 lg:order-1">
         <Image
           src={applicationComposer}
           width={700}
@@ -136,15 +136,15 @@ const rustCodeExample = `async fn function_handler(
   </div>
 </section>
 
-<section class="my-12 px-4 md:px-6 text-foreground">
+<section class="my-12 text-foreground">
   <div
-    class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm"
+    class="bg-card/50 text-card-foreground border border-border rounded-md p-8"
   >
-    <div class="grid grid-rows-1 lg:grid-cols-12 gap-8">
-      <div class="col-span-12 md:col-span-4">
+    <div class="grid grid-rows-1 grid-cols-1 lg:grid-cols-12 gap-8">
+      <div class="col-span-1 lg:col-span-4">
         <WrenchIcon class="w-12 h-12 text-accent" />
-        <h2 class="text-lg font-bold">The tools of the trade</h2>
-        <p class="mt-2 max-w-96">
+        <h2 class="mt-4 text-lg font-bold">The tools of the trade</h2>
+        <p class="mt-1 max-w-96">
           Discover the best tools and practices to <strong>build</strong>, <strong
             >test</strong
           >, and <strong>deploy</strong>
@@ -152,7 +152,7 @@ const rustCodeExample = `async fn function_handler(
         </p>
       </div>
 
-      <div class="col-span-12 md:col-span-8 content-evenly">
+      <div class="col-span-1 lg:col-span-8 content-evenly">
         <Terminal title="~/my-awesome-rust-lambda">
           <Code
             class="p-2 text-lg rounded-b-sm overflow-auto whitespace-pre-wrap max-h-44"

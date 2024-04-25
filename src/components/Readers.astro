@@ -1,12 +1,12 @@
 ---
 import type { ImageMetadata } from "astro";
 import Avatar from "./ui/Avatar.astro";
+import { cn } from "../lib/utils";
 
 type Props = {
   total: number;
 };
 
-// TODO: make list of real readers
 const readers = [
   { name: "Yan", image: "yan.jpg" },
   { name: "Serena", image: "serena.jpg" },
@@ -33,12 +33,12 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
 <div class="flex flex-row flex-wrap -space-x-2">
   {
-    readers.map((r) => (
+    readers.map((r, i) => (
       <Avatar
         image={images[`/src/images/devs/${r.image}`]()}
         alt={`${r.name}'s portrait`}
         fallback={r.name.substring(0, 2).toLocaleUpperCase()}
-        class="w-8 h-8 md:w-10 md:h-10"
+        class={cn("w-8 h-8 md:w-10 md:h-10", i > 11 && "hidden md:block")}
         width={40}
         loading="eager"
         decoding="sync"

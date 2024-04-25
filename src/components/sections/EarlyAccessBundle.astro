@@ -9,7 +9,7 @@ import CheckIcon from "../icons/CheckIcon.astro";
 
 <section
   id="early-access"
-  class="my-12 px-4 md:px-6 text-foreground scroll-m-28 scroll-smooth"
+  class="my-12 text-foreground scroll-m-28 scroll-smooth"
 >
   <div
     class="mt-32 mb-8 flex flex-col justify-center align-middle gap-4 items-center"
@@ -21,11 +21,11 @@ import CheckIcon from "../icons/CheckIcon.astro";
     </h2>
   </div>
 
-  <div class="my-12 px-4 text-foreground flex justify-center">
-    <div
-      class="bg-card/50 text-card-foreground border border-border glow rounded-md p-8 backdrop-blur-sm flex flex-row justify-center items-center gap-16"
-    >
-      <div class="flex flex-col gap-4">
+  <div
+    class="bg-card/50 text-card-foreground border border-border rounded-md p-8"
+  >
+    <div class="flex flex-col md:flex-row gap-8 justify-center items-center">
+      <div class="flex flex-row md:flex-col justify-center gap-8">
         <Image
           src={coverLight}
           width="200"
