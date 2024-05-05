@@ -3,7 +3,7 @@ import ThemeSwitcher from "../ThemeSwitcher.astro";
 import { NAV_LINKS } from "../../consts";
 ---
 
-<header class="fixed w-full py-1 md:py-2 z-50">
+<header id="header" class="fixed w-full py-1 md:py-2 z-50">
   <nav class="container mx-auto flex flex-wrap">
     <div class="peer flex justify-start">
       <a
@@ -40,6 +40,7 @@ import { NAV_LINKS } from "../../consts";
       class="order-1 max-md:peer-has-[:checked]:hidden w-full md:block md:w-auto"
     >
       <ul
+        id="nav-links"
         class="bg-card border border-border md:border-none md:bg-transparent rounded-b-md flex flex-col md:flex-row"
       >
         {
@@ -79,7 +80,7 @@ import { NAV_LINKS } from "../../consts";
       });
     };
   };
-  const header = document.querySelector("header");
+  const header = document.getElementById("header");
   const activeStateClassList = [
     "bg-card/75",
     "backdrop-blur-sm",
@@ -99,4 +100,15 @@ import { NAV_LINKS } from "../../consts";
     passive: true,
   });
   updateNavStyleOnScroll();
+
+  const menuCheckbox = header?.querySelector(
+    "input[name=menu]"
+  ) as HTMLInputElement;
+  const navLinks = document.querySelectorAll("#nav-links a");
+  console.log(navLinks);
+  for (const link of navLinks) {
+    link.addEventListener("click", () => {
+      menuCheckbox.checked = true;
+    });
+  }
 </script>

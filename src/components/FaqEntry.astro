@@ -11,7 +11,7 @@ const { Content } = await Astro.props.faq.render();
 
 <details class="group py-1 text-lg border-b border-border">
   <summary
-    class="flex cursor-pointer flex-row items-center justify-between py-1 font-semibold text-foreground marker:[font-size:0px]"
+    class="flex cursor-pointer flex-row items-center justify-between py-1 font-semibold text-foreground marker:[font-size:0px] hide-marker"
   >
     {faq.data.question}
     <svg
@@ -31,3 +31,11 @@ const { Content } = await Astro.props.faq.render();
     <Content />
   </div>
 </details>
+<style>
+  .hide-marker::marker {
+    display: none;
+  }
+  .hide-marker::-webkit-details-marker {
+    display: none;
+  }
+</style>
