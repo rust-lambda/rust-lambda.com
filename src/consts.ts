@@ -4,8 +4,8 @@ export const SITE_TITLE = `Crafting Lambda Functions in Rust - eBook by ${SITE_A
 export const SITE_DESCRIPTION = 'A practical guide on how to build efficient, sustainable, cost-effective serverless AWS solutions with the Rust programming language.'
 export const BUY_LINK = 'https://loige.gumroad.com/l/rust-lambda/early-access'
 export const CHECKOUT_LINK = 'https://app.gumroad.com/checkout?product=mheuj&quantity=1&code=early-access&referrer=http%3A%2F%2Flocalhost%3A4321%2F'
-export const PRICE_FULL = '39.90'
-export const PRICE_DISCOUNTED = '14.90'
+export const PRICE_FULL = '45.90'
+export const PRICE_DISCOUNTED = '18.36'
 export const NAV_LINKS = [
   {label: 'Features', href: '#features'},
   {label: 'Chapters', href: '#chapters'},
