@@ -1,5 +1,5 @@
 ---
-sortOrder: 2
+sortOrder: 3
 name: Ferris
 jobTitle: Rustacean @ crabland
 picture: ./ferris.jpg

@@ -1,5 +1,5 @@
 export const SITE_DOMAIN = 'rust-lambda.com'
-export const SITE_AUTHORS = ["Luciano Mammino"]
+export const SITE_AUTHORS = ["Luciano Mammino", "James Eastham"]
 export const SITE_TITLE = `Crafting Lambda Functions in Rust - eBook by ${SITE_AUTHORS.join(' and ')}`
 export const SITE_DESCRIPTION = 'A practical guide on how to build efficient, sustainable, cost-effective serverless AWS solutions with the Rust programming language.'
 export const BUY_LINK = 'https://loige.gumroad.com/l/rust-lambda/early-access'
