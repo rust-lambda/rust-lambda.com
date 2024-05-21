@@ -20,9 +20,15 @@ importers:
       astro:
         specifier: ^4.8.6
         version: 4.8.6(typescript@5.4.4)
+      class-variance-authority:
+        specifier: ^0.7.0
+        version: 0.7.0
       clsx:
         specifier: ^2.1.0
         version: 2.1.0
+      sharp:
+        specifier: ^0.33.3
+        version: 0.33.3
       tailwind-merge:
         specifier: ^2.2.2
         version: 2.2.2
@@ -35,13 +41,6 @@ importers:
       typescript:
         specifier: ^5.4.4
         version: 5.4.4
-    devDependencies:
-      class-variance-authority:
-        specifier: ^0.7.0
-        version: 0.7.0
-      sharp:
-        specifier: ^0.33.3
-        version: 0.33.3
 
 packages:
 
