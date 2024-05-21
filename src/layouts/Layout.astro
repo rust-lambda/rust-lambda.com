@@ -1,6 +1,11 @@
 ---
 import "../style.css";
-import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from "../consts";
+import {
+  SITE_TITLE,
+  SITE_DESCRIPTION,
+  SITE_URL,
+  SITE_AUTHORS_JOINED,
+} from "../consts";
 ---
 
 <script is:inline>
@@ -42,6 +47,12 @@ import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from "../consts";
     />
     <meta property="og:url" content={SITE_URL} />
     <meta property="og:site_name" content={SITE_TITLE} />
+    <meta name="author" content={SITE_AUTHORS_JOINED} />
+    <meta
+      name="publish_date"
+      property="og:publish_date"
+      content={new Date().toISOString()}
+    />
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
