@@ -10,10 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
+    "@astrojs/check": "^0.7.0",
     "@astrojs/tailwind": "^5.1.0",
     "@radix-ui/react-icons": "^1.3.0",
-    "astro": "^4.7.1",
+    "astro": "^4.8.6",
     "clsx": "^2.1.0",
     "tailwind-merge": "^2.2.2",
     "tailwindcss": "^3.4.3",
@@ -23,5 +23,6 @@
   "devDependencies": {
     "class-variance-authority": "^0.7.0",
     "sharp": "^0.33.3"
-  }
+  },
+  "packageManager": "pnpm@9.0.6+sha256.0624e30eff866cdeb363b15061bdb7fd9425b17bc1bb42c22f5f4efdea21f6b3"
 }

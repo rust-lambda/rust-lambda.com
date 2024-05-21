@@ -1,6 +1,6 @@
 ---
 import "../style.css";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from "../consts";
 ---
 
 <script is:inline>
@@ -32,6 +32,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     <title>{SITE_TITLE}</title>
     <meta name="description" content={SITE_DESCRIPTION} />
     <meta name="viewport" content="width=device-width" />
+    <link rel="canonical" href={SITE_URL} />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={SITE_TITLE} />
+    <meta property="og:description" content={SITE_DESCRIPTION} />
+    <meta
+      property="og:image"
+      content={`${SITE_URL}rust-lambda-social-sharing.jpg`}
+    />
+    <meta property="og:url" content={SITE_URL} />
+    <meta property="og:site_name" content={SITE_TITLE} />
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
