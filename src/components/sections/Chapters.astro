@@ -44,30 +44,30 @@ function statusVariant(
 const chapters: Chapter[] = [
   {
     section: "Chapter 1",
-    title: "Rust & Lambda, a love story",
+    title: "Rust & Lambda",
     description:
       "Why this combo makes a ton of sense compared to other alternatives.",
-    status: "in-progress",
+    status: "draft",
   },
   {
     section: "Chapter 2",
-    title: "An oxidised serverless 'Hello, World'",
+    title: "A 'Hello, Serverless' API",
     description: "Writing our first Rust-powered Lambda Function.",
-    status: "planned",
+    status: "draft",
   },
   {
     section: "Chapter 3",
     title: "Infrastructure as code with SAM",
     description:
       "How to deploy and manage Rust Lambda functions with the Serverless Application Model.",
-    status: "planned",
+    status: "in-progress",
   },
   {
     section: "Chapter 4",
     title: "Integrating with external systems",
     description:
       "How to make arbitrary HTTP requests or to other AWS services from your Lambda functions.",
-    status: "planned",
+    status: "in-progress",
   },
   {
     section: "Chapter 5",
@@ -160,6 +160,8 @@ const progress =
     chaptersByStatus["in-progress"].length * 0.5 +
     chaptersByStatus["planned"].length * 0) /
   chapters.length;
+
+const percentProgress = Math.min(100, Math.max(0, Math.floor(progress * 100)));
 ---
 
 <section
@@ -199,7 +201,7 @@ const progress =
           </div>
           <div class="my-6">
             <span class="text-muted-foreground text-sm"
-              >Progress ({progress.toFixed(2)}%)</span
+              >Progress ({percentProgress.toFixed(2)}%)</span
             >
             <Progress value={progress} class="w-full mt-2" />
           </div>
