@@ -2,4 +2,4 @@
 question: "Are the code examples available for download?"
 ---
 
-Yes, the book is designed to be accessible to readers with basic knowledge of Rust. The early chapters provide a gentle introduction to Lambda functions and serverless computing.
+Yes, all the code examples (and the solution for the exercises!) are [freely available on GitHub](https://github.com/rust-lambda/code-samples).
