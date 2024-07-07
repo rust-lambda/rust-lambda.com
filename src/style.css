@@ -58,4 +58,13 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .prose a {
+    text-decoration: underline;
+    color: hsl(var(--primary));
+  }
+
+  .prose a:hover {
+    color: hsl(var(--primary-alt));
+  }
 }
