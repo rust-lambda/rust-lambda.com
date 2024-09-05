@@ -28,7 +28,7 @@ import PiggyBankIcon from "../icons/PiggyBankIcon.astro";
           <li>
             You know that Lambda is a <strong class="font-semibold"
               >sustainable</strong
-            > platform, but are you wondering if we could do more?
+            > platform, but are you wondering if you could do more?
           </li>
         </ul>
         <p class="mt-8 text-xl font-semibold">
@@ -105,11 +105,11 @@ import PiggyBankIcon from "../icons/PiggyBankIcon.astro";
 <script>
   const animationClass = "[animation:4s_ease-in-out_0s_1_forwards_slideinout]";
   const items: NodeListOf<SVGAElement> = document.querySelectorAll(
-    ".alternate-content > *"
+    ".alternate-content > *",
   );
   function animateNext(e: AnimationEvent) {
     const currentIdx = Number.parseInt(
-      (e.target as HTMLElement).dataset.animationidx as string
+      (e.target as HTMLElement).dataset.animationidx as string,
     );
     const nextIdx = (currentIdx + 1) % items.length;
     const currentItem = items[currentIdx];
