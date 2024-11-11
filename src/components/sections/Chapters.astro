@@ -4,7 +4,7 @@ import Progress from "../ui/Progress.astro";
 import AlertIcon from "../icons/AlertIcon.astro";
 import Badge from "../ui/Badge.astro";
 
-type Status = "completed" | "draft" | "in-progress" | "planned";
+type Status = "completed" | "published" | "in-progress" | "planned";
 
 type Chapter = {
   section: string;
@@ -17,8 +17,8 @@ function statusDesc(status: Status): string {
   switch (status) {
     case "completed":
       return "Completed";
-    case "draft":
-      return "Draft";
+    case "published":
+      return "Published";
     case "in-progress":
       return "In progress";
     case "planned":
@@ -27,12 +27,12 @@ function statusDesc(status: Status): string {
 }
 
 function statusVariant(
-  status: Status
+  status: Status,
 ): "default" | "accent" | "secondary" | "outline" {
   switch (status) {
     case "completed":
       return "default";
-    case "draft":
+    case "published":
       return "accent";
     case "in-progress":
       return "secondary";
@@ -47,55 +47,55 @@ const chapters: Chapter[] = [
     title: "Rust & Lambda",
     description:
       "Why this combo makes a ton of sense compared to other alternatives.",
-    status: "draft",
+    status: "published",
   },
   {
     section: "Chapter 2",
     title: "A 'Hello, Serverless' API",
     description: "Writing our first Rust-powered Lambda Function.",
-    status: "draft",
+    status: "published",
   },
   {
     section: "Chapter 3",
     title: "Infrastructure as code with SAM",
     description:
       "How to deploy and manage Rust Lambda functions with the Serverless Application Model.",
-    status: "draft",
+    status: "published",
   },
   {
     section: "Chapter 4",
     title: "Integrating with external systems",
     description:
       "How to make arbitrary HTTP requests or to other AWS services from your Lambda functions.",
-    status: "draft",
+    status: "published",
   },
   {
     section: "Chapter 5",
     title: "Code organisation",
     description:
       "Best practices on how to organise the code for projects with multiple Lambda functions.",
-    status: "planned",
+    status: "published",
   },
   {
     section: "Chapter 6",
     title: "Making the code testable",
     description:
       "How to structure the code to be able to write good tests for your Lambda",
-    status: "planned",
+    status: "published",
   },
   {
     section: "Chapter 7",
     title: "Handling different kinds of events",
     description:
       "How to handle AWS Specific events, custom events and arbitrary JSON in a strongly-typed way.",
-    status: "planned",
+    status: "in-progress",
   },
   {
     section: "Chapter 8",
     title: "Different ways of writing Lambda handlers",
     description:
       "From simple async functions, to custom structs, to implementing the Tokio Tower service trait.",
-    status: "planned",
+    status: "in-progress",
   },
   {
     section: "Chapter 9",
@@ -151,12 +151,12 @@ const chaptersByStatus = chapters.reduce(
     acc[chapter.status].push(chapter);
     return acc;
   },
-  { completed: [], draft: [], "in-progress": [], planned: [] }
+  { completed: [], published: [], "in-progress": [], planned: [] },
 );
 
 const progress =
   (chaptersByStatus["completed"].length * 1 +
-    chaptersByStatus["draft"].length * 0.8 +
+    chaptersByStatus["published"].length * 0.8 +
     chaptersByStatus["in-progress"].length * 0.5 +
     chaptersByStatus["planned"].length * 0) /
   chapters.length;

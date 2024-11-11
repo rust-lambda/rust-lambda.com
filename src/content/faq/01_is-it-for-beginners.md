@@ -1,5 +1,12 @@
 ---
-question: "Is this book suitable for beginners?"
+question: "I'm new to software engineering. Is this book suitable for me?"
 ---
 
-Yes, this book is designed to be accessible to readers with very basic knowledge of Rust and AWS. The early chapters provide a gentle introduction to Lambda functions and serverless computing in a simple and accessible way, catering to the needs of readers from different backgrounds.
+Absolutely! This book is crafted to be beginner-friendly, making it a great
+choice for those just starting in tech or transitioning from other fields. A
+basic understanding of Rust and AWS will be helpful, but beyond that, all you
+need is curiosity and a willingness to learn. The opening chapters gently
+introduce Lambda functions and serverless computing, designed to be easy to
+follow for readers from diverse backgrounds. We begin each topic (e.g.
+databases, testing, and specific cloud services) with a high-level overview
+before diving into the details of AWS Lambda and Rust.
