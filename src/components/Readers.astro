@@ -2,10 +2,7 @@
 import type { ImageMetadata } from "astro";
 import Avatar from "./ui/Avatar.astro";
 import { cn } from "../lib/utils";
-
-type Props = {
-  total: number;
-};
+import fetchSalesCount from "../lib/data/fetchSalesCount";
 
 const readers = [
   { name: "Yan", image: "yan.jpg" },
@@ -25,10 +22,10 @@ const readers = [
   { name: "Giuseppe", image: "giuseppe.jpg" },
 ];
 
-const { total } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/images/devs/*.jpg"
+  "/src/images/devs/*.jpg",
 );
+const salesCount = await fetchSalesCount();
 ---
 
 <div class="flex flex-row flex-wrap -space-x-2">
@@ -47,7 +44,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   }
   <Avatar
     alt="More readers"
-    fallback={`+${total - readers.length}`}
+    fallback={`+${salesCount - readers.length}`}
     class="w-8 h-8 md:w-10 md:h-10"
     width={40}
   />
