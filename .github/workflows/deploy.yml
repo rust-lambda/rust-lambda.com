@@ -3,6 +3,8 @@ name: Deploy
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '1 0 * * *' # every day at 00:01 UTC to make sure the sales count is up to date
   workflow_dispatch: {} # manual release
 
 permissions:
@@ -53,6 +55,9 @@ jobs:
 
       - name: Build
         run: pnpm build
+        env:
+          NODE_ENV: production
+          GUMROAD_API_KEY: ${{ secrets.GUMROAD_API_KEY }}
 
       - name: Fix permissions
         run: |
