@@ -88,51 +88,44 @@ const chapters: Chapter[] = [
     title: "Configuration management and handling secrets",
     description:
       "Best practices to inject configuration and secrets into your Rust Lambda functions.",
-    status: "published",
+    status: "completed",
   },
   {
     section: "Chapter 8",
-    title: "Handling different kinds of events",
+    title: "Event-Driven Serverless Applications",
     description:
-      "How to handle AWS Specific events, custom events and arbitrary JSON in a strongly-typed way.",
-    status: "in-progress",
+      "How to build event-driven serverless applications using AWS Lambda and other AWS services such as SQS, EventBridge, and Kinesis.",
+    status: "completed",
   },
   {
     section: "Chapter 9",
-    title: "Different ways of writing Lambda handlers",
+    title: "Observing all the things",
     description:
-      "From simple async functions, to custom structs, to implementing the Tokio Tower service trait.",
+      "How to make our Rust Lambda functions observable using CloudWatch or OpenTelemetry.",
     status: "in-progress",
   },
   {
     section: "Chapter 10",
-    title: "Observing all the things",
-    description:
-      "How to make our Rust Lambda functions observable using CloudWatch or OpenTelemetry.",
-    status: "planned",
-  },
-  {
-    section: "Chapter 11",
     title: "Middlewares",
     description:
       "How to embrace the middleware pattern to handle cross-cutting concerns in an elegant and reusable way.",
     status: "planned",
   },
   {
-    section: "Chapter 12",
+    section: "Chapter 11",
     title: "Hosting existing HTTP services",
     description:
       "How to wrap existing HTTP services in a Lambda function to make them easily available as serverless functions.",
     status: "planned",
   },
   {
-    section: "Chapter 13",
+    section: "Chapter 12",
     title: "Lambda extensions",
     description: "Writing Lambda extensions using Rust.",
     status: "planned",
   },
   {
-    section: "Chapter 14",
+    section: "Chapter 13",
     title: "Integrating with GitHub Actions",
     description:
       "How to configure the integration between AWS and GitHub Actions to test, build and deploy your Lambda Functions in an automated fashion.",
@@ -140,9 +133,15 @@ const chapters: Chapter[] = [
   },
   {
     section: "Appendix A",
-    title: "IaC alternatives",
-    description: "How to use CDK or Terraform as an alternative to SAM.",
-    status: "planned",
+    title: "Using AWS CDK",
+    description: "How to use CDK as an alternative to SAM.",
+    status: "completed",
+  },
+  {
+    section: "Appendix B",
+    title: "Using Terraform",
+    description: "How to use Terraform as an alternative to SAM.",
+    status: "completed",
   },
 ];
 
