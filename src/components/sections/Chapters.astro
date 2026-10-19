@@ -106,30 +106,17 @@ const chapters: Chapter[] = [
   },
   {
     section: "Chapter 10",
-    title: "Middlewares",
+    title: "Wrapping Handlers with Middleware",
     description:
-      "How to embrace the middleware pattern to handle cross-cutting concerns in an elegant and reusable way.",
-    status: "planned",
+      "How to use Tower middleware to handle cross-cutting concerns such as rate limiting and observability in a reusable and testable way.",
+    status: "completed",
   },
   {
     section: "Chapter 11",
-    title: "Hosting existing HTTP services",
+    title: "Authentication and authorization",
     description:
-      "How to wrap existing HTTP services in a Lambda function to make them easily available as serverless functions.",
-    status: "planned",
-  },
-  {
-    section: "Chapter 12",
-    title: "Lambda extensions",
-    description: "Writing Lambda extensions using Rust.",
-    status: "planned",
-  },
-  {
-    section: "Chapter 13",
-    title: "Integrating with GitHub Actions",
-    description:
-      "How to configure the integration between AWS and GitHub Actions to test, build and deploy your Lambda Functions in an automated fashion.",
-    status: "planned",
+      "How to authenticate callers and authorise access to your Lambda-backed APIs.",
+    status: "in-progress",
   },
   {
     section: "Appendix A",
@@ -141,6 +128,20 @@ const chapters: Chapter[] = [
     section: "Appendix B",
     title: "Using Terraform",
     description: "How to use Terraform as an alternative to SAM.",
+    status: "completed",
+  },
+  {
+    section: "Appendix C",
+    title: "Hosting Existing Rust HTTP Services on Lambda",
+    description:
+      "How to run an existing Rust web application, such as an Axum service, on Lambda with lambda_http or the AWS Lambda Web Adapter.",
+    status: "completed",
+  },
+  {
+    section: "Appendix D",
+    title: "Integrating with GitHub Actions",
+    description:
+      "How to configure the integration between AWS and GitHub Actions to test, build and deploy your Lambda Functions in an automated fashion.",
     status: "completed",
   },
 ];
